@@ -6,7 +6,7 @@ const app = express();
 const morgan = require('morgan');
 
 const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
+const dbParams = require('../lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
