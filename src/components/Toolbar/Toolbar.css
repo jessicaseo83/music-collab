@@ -49,3 +49,8 @@ padding: 0.5rem;
   color: orange;
 }
 
+@media (max-width: 768px) {
+  .nav-pages li {
+    display: none;
+  }
+}
