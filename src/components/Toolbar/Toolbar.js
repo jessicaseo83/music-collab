@@ -17,10 +17,10 @@ const Toolbar = props => (
       <div className="spacer"/>
         <div className="nav-pages">
           <ul>
-            <li><a href="/search">Search</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/chatbox/join">Chatbox</a></li>
+            <li><a href="/search">Collaborate</a></li>
             <li><a href="/pinboard">Pinboard</a></li>
+            <li><a href="/chatbox/join">Chatbox</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
           </ul>
         </div>
       
