@@ -10,6 +10,9 @@ const dbParams = require('../lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'build')));
 
