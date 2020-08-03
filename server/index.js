@@ -1,9 +1,14 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
 const app = express();
 const morgan = require('morgan');
 
+const { Pool } = require('pg');
+const dbParams = require('../lib/db.js');
+const db = new Pool(dbParams);
+db.connect();
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'build')));
