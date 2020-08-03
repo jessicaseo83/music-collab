@@ -8,7 +8,7 @@ const Toolbar = props => (
       <div></div>
       <div><img src={logo} className="App-logo" alt="logo"/></div>
       <div>
-        <ul>
+        <ul className="NavBar">
           <li><a href="/search">Search</a></li>
           <li><a href="/dashboard">Dashboard</a></li>
           <li><a href="/chatbox/join">Chatbox</a></li>
