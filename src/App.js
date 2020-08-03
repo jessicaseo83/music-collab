@@ -23,14 +23,17 @@ class App extends Component {
     });
   };
 
+  backdropClickHandler =() => {
+    this.setState({sideDrawerOpen: false});
+  }
+
   render() {
 
-  let sideDrawer;
   let backdrop;
 
   if(this.state.sideDrawerOpen) {
     sideDrawer = <SideDrawer/>;
-    backdrop = <Backdrop/>;
+    backdrop = <Backdrop click={this.backdropClickHandler}/>;
   }
   return (
     <>
