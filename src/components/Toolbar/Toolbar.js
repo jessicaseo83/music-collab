@@ -2,13 +2,18 @@ import React from 'react';
 import logo from '../logo.svg';
 import Navbar from 'react-bootstrap/Navbar';
 import "./Toolbar.css"
+import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
+
 
 
 const Toolbar = props => (
   <>
   <header className="toolbar"> 
     <Navbar className="nav">
-      <div><a href="/">THE LOGO</a></div>
+      <div>
+        <DrawerToggleButton/>
+      </div>
+      <div className="App-logo"><a href="/">THE LOGO</a></div>
       <div className="spacer"/>
         <div className="nav-pages">
           <ul>
