@@ -1,10 +1,5 @@
 
 import React from 'react';
-<<<<<<< HEAD
-import './App.css';
-import SignIn from "./components/SignIn"
-=======
->>>>>>> master
 
 import Chat from './components/Chatbox/Chat/Chat';
 import Join from './components/Chatbox/Join/Join';
