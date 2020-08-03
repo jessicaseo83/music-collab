@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { Component} from 'react';
 
 import Chat from './components/Chatbox/Chat/Chat';
 import Join from './components/Chatbox/Join/Join';
@@ -13,7 +13,7 @@ import Backdrop from "./components/Backdrop/Backdrop"
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-const App = () => {
+class App extends Component {
   state= {
     sideDrawerOpen: false
   }
@@ -22,6 +22,16 @@ const App = () => {
       return{sideDrawerOpen: !prevState.sideDrawerOpen};
     });
   };
+
+  render() {
+
+  let sideDrawer;
+  let backdrop;
+
+  if(this.state.sideDrawerOpen) {
+    sideDrawer = <SideDrawer/>;
+    backdrop = <Backdrop/>;
+  }
   return (
     <>
     <Router>
@@ -32,12 +42,13 @@ const App = () => {
       <Route path="/search" component={Search}/>
     </Router>
     <div style={{height: "100%"}}>
-      <Toolbar/>
-      <SideDrawer/>
-      <Backdrop/>
+      <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
+      {sideDrawer}
+      {backdrop}
     </div>
     </>
   );
+}
 }
 
 export default App;

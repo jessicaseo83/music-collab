@@ -11,7 +11,7 @@ const Toolbar = props => (
   <header className="toolbar"> 
     <Navbar className="nav">
       <div>
-        <DrawerToggleButton/>
+        <DrawerToggleButton click={props.drawerClickHandler}/>
       </div>
       <div className="App-logo"><a href="/">THE LOGO</a></div>
       <div className="spacer"/>
