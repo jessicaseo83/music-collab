@@ -1,21 +1,25 @@
 import React from 'react';
 import logo from '../logo.svg';
+import Navbar from 'react-bootstrap/Navbar';
+import "./Toolbar.css"
+
 
 const Toolbar = props => (
   <>
-  <header> 
-    <nav>
-      <div></div>
-      <div><img src={logo} className="App-logo" alt="logo"/></div>
-      <div>
-        <ul className="NavBar">
-          <li><a href="/search">Search</a></li>
-          <li><a href="/dashboard">Dashboard</a></li>
-          <li><a href="/chatbox/join">Chatbox</a></li>
-          <li><a href="/pinboard">Pinboard</a></li>
-        </ul>
-      </div>
-    </nav>
+  <header className="toolbar"> 
+    <Navbar className="nav">
+      <div><a href="/">THE LOGO</a></div>
+      <div className="spacer"/>
+        <div className="nav-pages">
+          <ul>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/chatbox/join">Chatbox</a></li>
+            <li><a href="/pinboard">Pinboard</a></li>
+          </ul>
+        </div>
+      
+    </Navbar>
   </header>
   <footer>
     <nav>
