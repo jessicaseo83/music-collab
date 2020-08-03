@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: black;
+  background: #163840;
   height: 8rem;
 }
 
@@ -14,12 +14,18 @@
   }
 
 .App-logo {
-  margin-left: 2rem;
+  height: 170px;
+  width: 437px;
+  margin-left: 1rem;
+  margin-top: 6rem;
+  font-family: rift;
 }
 
 .App-logo a {
   color: white;
   text-decoration: none;
+
+  
 }
 
 .spacer {
@@ -52,6 +58,10 @@ padding: 0.5rem;
 @media (max-width: 768px) {
   .nav-pages li {
     display: none;
+  }
+  .App-logo {
+    text-align: right;
+
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../logo.svg';
+import logo from '../logo.png';
 import Navbar from 'react-bootstrap/Navbar';
 import "./Toolbar.css"
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
@@ -13,7 +13,8 @@ const Toolbar = props => (
       <div className="toolbar-toggle-button">
         <DrawerToggleButton click={props.drawerClickHandler}/>
       </div>
-      <div className="App-logo"><a href="/">THE LOGO</a></div>
+      <div className="App-logo"><a href="/"><img src={logo} height="50%" width="50%"/></a></div>
+  
       <div className="spacer"/>
         <div className="nav-pages">
           <ul>
