@@ -26,7 +26,8 @@ header {
 
 .NavBar {
   display: flex;
-  justify-content: stretch;
+  flex-direction: row;
+  justify-content: flex-end;
   align-content: stretch;
 }
 
