@@ -1,4 +1,5 @@
 require('dotenv').config();
+const PORT = process.env.PORT || 8000;
 const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
@@ -9,6 +10,10 @@ const { Pool } = require('pg');
 const dbParams = require('../lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
+const dbHelpers = require('./helpers/dbHelpers')(db)
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'build')));
@@ -17,8 +22,12 @@ app.get('/ping', function (req, res) {
  return res.send('pong');
 });
 
+const signRoute = require("./routes/sign");
+app.use("/sign",signRoute(dbHelpers))
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(process.env.PORT || 8080);
+
+app.listen(PORT , () => console.log(`Example app listening on port ${PORT}`));
