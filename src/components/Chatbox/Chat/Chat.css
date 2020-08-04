@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
   background-color: #1A1A1D;
+  margin-top: 9em;
 }
 
 .container {
