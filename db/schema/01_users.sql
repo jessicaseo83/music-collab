@@ -8,6 +8,8 @@ CREATE TABLE users (
   date_of_birth DATE NOT NULL,
   city VARCHAR(255) NOT NULL,
   postal_code VARCHAR(7) NOT NULL,
+  lat FLOAT NOT NULL,
+  lng FLOAT NOT NULL,
   role VARCHAR(255) NOT NULL,
   profile_pic VARCHAR(255) DEFAULT NULL
 )
