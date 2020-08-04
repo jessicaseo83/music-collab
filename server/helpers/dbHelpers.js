@@ -1,7 +1,7 @@
 module.exports= function(db){
   const getUserByEmail = function(email) {
     const query= {
-      text:"SELECT * From users WhERE email = $1",
+      text:"SELECT * From users WHERE email = $1",
       values:[email.trim().toLowerCase()]
     }
     return db.query(query)
@@ -9,7 +9,17 @@ module.exports= function(db){
     
   
   }
+
+  const getAllUsers = function() {
+    const query= {
+      text:"SELECT id,name,email,city,postal_code,role,profile_pic From users",
+    }
+    return db.query(query)
+    .then(result =>  result.rows)
+
+  }
   return {
-    getUserByEmail
+    getUserByEmail,
+    getAllUsers
   }
 }
