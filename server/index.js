@@ -10,6 +10,7 @@ const { Pool } = require('pg');
 const dbParams = require('../lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
+const dbHelpers = require('./helpers/dbHelpers')(db)
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,8 +22,8 @@ app.get('/ping', function (req, res) {
  return res.send('pong');
 });
 
-const authenticationRoutes = require("./routes/authentication");
-app.use("/",authenticationRoutes())
+const signRoute = require("./routes/sign");
+app.use("/sign",signRoute(dbHelpers))
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
