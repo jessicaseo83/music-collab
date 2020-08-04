@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 export default function SignIn(){
-  const [info,setInfo]=useState({name:"",birthday:"",email:"",password:"",city:"",postalCode:""})
+  const [info,setInfo]=useState({name:"",birthday:"",email:"",password:"",city:"",postalCode:"",role:""})
 
   return (
 
@@ -42,6 +42,14 @@ export default function SignIn(){
     required={true} 
     value={info.password}
      onChange={(event)=>setInfo({...info,password:event.target.value})}/>
+  </Form.Group>
+
+  <Form.Group controlId="user_role">
+      <Form.Label>Role</Form.Label>
+      <Form.Control type="text" placeholder="Enter role" 
+      required={true} 
+      value={info.role}
+      onChange={(event)=>setInfo({...info,role:event.target.value})}/>
   </Form.Group>
 
   <Form.Group controlId="user_city">
