@@ -1,4 +1,5 @@
 require('dotenv').config();
+const PORT = process.env.PORT || 8000;
 const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
@@ -20,8 +21,12 @@ app.get('/ping', function (req, res) {
  return res.send('pong');
 });
 
+const authenticationRoutes = require("./routes/authentication");
+app.use("/",authenticationRoutes())
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(process.env.PORT || 8080);
+
+app.listen(PORT , () => console.log(`Example app listening on port ${PORT}`));
