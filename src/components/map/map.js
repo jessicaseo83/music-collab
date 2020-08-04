@@ -33,43 +33,34 @@ export default function Map() {
     setSelected(item);
   }
 
-  const locations = [
+  const users = [
     {
-      name: "Jude Smith",
-      location: { 
-        lat: 43.652769,
-        lng: -79.381254
-      },
+      id: 6,
+      name: "Hannibal Lecter",
+      email: "creepyguy@hahaha.com",
+      city: "Winnipeg",
+      postal_code: "R2C 0S3",
+      role: "Producer",
+      profile_pic: "https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&h=350"
     },
     {
-      name: "Location 2",
-      location: { 
-        lat: 43.761539,
-        lng: -79.411079
-      },
+      id: 8,
+      name: "Hailee Steinfeld",
+      email: "hhhhhssssql@musian.com",
+      city: "Laval",
+      postal_code: "H7A 1B7",
+      role: "Musician",
+      profile_pic: "https://images.pexels.com/photos/2787341/pexels-photo-2787341.jpeg?auto=compress&cs=tinysrgb&h=350"
     },
-    {
-      name: "Location 3",
-      location: { 
-        lat: 43.649588,
-        lng: -79.378086
-      },
-    },
-    {
-      name: "Location 4",
-      location: { 
-        lat: 43.64382,
-        lng: -79.404198
-      },
-    },
-    {
-      name: "Location 5",
-      location: { 
-        lat: 43.7764,
-        lng: -79.2318
-      },
-    }
+    
   ];
+
+  // {
+  //   name: "Location 2",
+  //   location: { 
+  //     lat: 43.761539,
+  //     lng: -79.411079
+  //   },
 
   return <div>
    

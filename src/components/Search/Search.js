@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import axios from 'axios'
+import Map from '../map/map'
 
 const Search = () => {
   const [users,setUsers] = useState();
@@ -10,7 +11,10 @@ const Search = () => {
 
   },[])
   return (
+    <>
     <h1>Search</h1>
+    <Map />
+    </>
   )
 }
 
