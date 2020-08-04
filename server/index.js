@@ -23,7 +23,9 @@ app.get('/ping', function (req, res) {
 });
 
 const signRoute = require("./routes/sign");
-app.use("/sign",signRoute(dbHelpers))
+const usersRoute = require("./routes/users");
+app.use("/sign",signRoute(dbHelpers));
+app.use("/users",usersRoute(dbHelpers))
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
