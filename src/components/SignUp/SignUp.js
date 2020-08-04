@@ -1,14 +1,16 @@
 import React from "react";
 import  { useState } from "react";
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import "./SignUp.css"
+
 
 export default function SignIn(){
   const [info,setInfo]=useState({name:"",birthday:"",email:"",password:"",city:"",postalCode:""})
 
   return (
 
-    <Form className="m-5"onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
+    <Form className="signup-form"onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
       <h2>Sign Up</h2>
 
     <Form.Group controlId="user_name">

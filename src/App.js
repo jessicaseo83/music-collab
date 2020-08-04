@@ -6,6 +6,8 @@ import Join from './components/Chatbox/Join/Join';
 import Dashboard from './components/Dashboard/Dashboard';
 import Pinboard from './components/Pinboard/Pinboard';
 import Search from './components/Search/Search';
+import SignIn from './components/SignIn/SignIn.js'
+import SignUp from './components/SignUp/SignUp.js'
 
 import Toolbar from "./components/Toolbar/Toolbar";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
@@ -44,6 +46,9 @@ class App extends Component {
       <Route path="/dashboard" component={Dashboard}/>
       <Route path="/pinboard" component={Pinboard}/>
       <Route path="/search" component={Search}/>
+      <Route path="/signin" component={SignIn}/>
+      <Route path="/signup" component={SignUp}/>
+
     </Router>
     <div style={{height: "100%"}}>
       <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
