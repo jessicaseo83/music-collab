@@ -10,6 +10,7 @@ import Search from './components/Search/Search';
 import Toolbar from "./components/Toolbar/Toolbar";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop"
+import Collaborate from './components/Collaborate/Collaborate'
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -44,6 +45,7 @@ class App extends Component {
       <Route path="/dashboard" component={Dashboard}/>
       <Route path="/pinboard" component={Pinboard}/>
       <Route path="/search" component={Search}/>
+      <Route path="/collaborate" component={Collaborate}/>
     </Router>
     <div style={{height: "100%"}}>
       <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
