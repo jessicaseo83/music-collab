@@ -2,7 +2,7 @@ import React from 'react';
 
 import ScrollToBottom from 'react-scroll-to-bottom';
 
-import Message from '/Users/michel/lighthouse/music-collab/src/components/Chatbox/Messages/Messages/Messages.js';
+import Message from './Messages/Messages.js';
 
 import './Messages.css';
 

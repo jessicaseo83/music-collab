@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '/Users/michel/lighthouse/music-collab/src/components/Chatbox/Messages/Messages/Messages.css';
+import './Messages.css';
 
 import ReactEmoji from 'react-emoji';
 

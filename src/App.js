@@ -42,7 +42,7 @@ class App extends Component {
     <>
     <Router>
       <Route path="/chatbox/join" exact component={Join} />
-      <Route path="/chatbox/chat" component={Chat} />
+      <Route path="/chat" component={Chat} />
       <Route path="/dashboard" component={Dashboard}/>
       <Route path="/pinboard" component={Pinboard}/>
       <Route path="/search" component={Search}/>
