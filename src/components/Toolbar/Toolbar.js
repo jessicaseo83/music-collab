@@ -35,7 +35,7 @@ const Toolbar = props => (
       <div></div>
       <div>
         <ul>
-          <li><h1>Hello. I am a footer</h1></li>
+          <li><h6>I am a footer</h6></li>
         </ul>
       </div>
     </nav>
