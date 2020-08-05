@@ -1,31 +1,39 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  width: '70vw',
-  height: '70vh'
+  width: '100vw',
+  height: '100vh'
 };
-const center = {
-  lat: 43.70011,
-  lng: -79.4163
-}
 
 
-export default function Map() {
+export default function Map(props) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyCMXpIKzcIugui4uYvcZfl5unWgiLpbBJk',
     libraries,
   });
- 
+  const [ currentPosition, setCurrentPosition ] = useState({});
   const [ selected, setSelected ] = useState({})
+
   const mapRef = useRef();
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
   }, []);
 
- 
+  const success = position => {
+    const currentPosition = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    }
+    setCurrentPosition(currentPosition);
+  };
+  
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(success);
+  })
+
 
   if(loadError) return "Error loading maps";
   if(!isLoaded) return "Loading...";
@@ -33,63 +41,47 @@ export default function Map() {
     setSelected(item);
   }
 
-  const users = [
-    {
-      id: 6,
-      name: "Hannibal Lecter",
-      email: "creepyguy@hahaha.com",
-      city: "Winnipeg",
-      postal_code: "R2C 0S3",
-      role: "Producer",
-      profile_pic: "https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&h=350"
-    },
-    {
-      id: 8,
-      name: "Hailee Steinfeld",
-      email: "hhhhhssssql@musian.com",
-      city: "Laval",
-      postal_code: "H7A 1B7",
-      role: "Musician",
-      profile_pic: "https://images.pexels.com/photos/2787341/pexels-photo-2787341.jpeg?auto=compress&cs=tinysrgb&h=350"
-    },
-    
-  ];
+  const users = props.users;
+  
 
-  // {
-  //   name: "Location 2",
-  //   location: { 
-  //     lat: 43.761539,
-  //     lng: -79.411079
-  //   },
-
-  return <div>
-   
+  return (
+  <div class='map'>
+ 
     <GoogleMap 
       mapContainerStyle={mapContainerStyle}
-      zoom={8}
-      center={center}
-      onLoad={onMapLoad}
+      zoom={13}
+      center={currentPosition}
+     
     >
-      {locations.map(marker => (
+    
+      {users && users.map(user => (
         <Marker
-          key={marker.name}
-          position={marker.location}
-          onClick={() => onSelect(marker)}
+          key={user.name}
+          position={{lat: user.lat, lng: user.lng}}
+          onClick={() => onSelect(user)}
+          onLoad={onMapLoad}
         />
         ))
       }
       {
-        selected.location && 
-        (
+        selected.lat && (
+        
           <InfoWindow
-          position={selected.location}
+          position={{ lat: selected.lat, lng: selected.lng }}
           clickable={true}
           onCloseClick={() => setSelected({})}
         >
-          <p>{selected.name}</p>
+          <div>
+            <img src={selected.profile_pic} width="100" height="100" />
+            <p>Name: {selected.name}</p>
+            <p>Role: {selected.role}</p>
+            <button>See Profile</button>
+          </div>
         </InfoWindow>
-        )
-      }
+        
+        )}
     </GoogleMap>
+    
   </div>
+  )
 }
