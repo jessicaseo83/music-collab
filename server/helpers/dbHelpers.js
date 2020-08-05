@@ -18,8 +18,21 @@ module.exports= function(db){
     .then(result =>  result.rows)
 
   }
+  const saveUser = function(info,location) {
+    const query = {
+      text:`INSERT INTO users (name, password, email, date_of_birth, city, postal_code, lat, lng, role, profile_pic)
+      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) Returning *`,
+      values:[info.name,info.password,info.email,info.birthday,info.city,info.postalCode,location.lat,location.lng,info.role,info.profilePic]
+    }
+
+      return db.query(query)
+      .then(res => res.rows[0])
+
+    }
+  
   return {
     getUserByEmail,
-    getAllUsers
+    getAllUsers,
+    saveUser
   }
 }

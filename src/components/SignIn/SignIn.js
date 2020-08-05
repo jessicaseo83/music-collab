@@ -3,13 +3,14 @@ import React from "react";
 import  { useState } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import "./SignIn.css"
 
 export default function SignIn(){
   const [info,setInfo]=useState({email:"",password:""})
 
   return (
 
-    <Form className="m-5"onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
+    <Form className="signin-form" onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
       <h2>Sign In</h2>
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
