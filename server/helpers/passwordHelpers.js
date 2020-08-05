@@ -6,6 +6,11 @@ const validatePassword =  function(user,password) {
 
 
 }
+
+const encryptPassword = function(password) {
+  return bcrypt.hashSync(password,10);
+}
 module.exports = {
-  validatePassword
+  validatePassword,
+  encryptPassword
 }
