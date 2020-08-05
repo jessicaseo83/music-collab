@@ -15,7 +15,7 @@ return (
     <Card.Title>{user.name}</Card.Title>
     <Card.Text>{user.city}</Card.Text>
     <Card.Text>{user.email}</Card.Text>
-<Button href="/search/:userid" variant="primary">"/search/:userid"</Button>
+<Button href="/dashboard" variant="primary">See profile</Button>
   </Card.Body>
 </Card>
 </CardColumns>
