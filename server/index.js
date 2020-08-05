@@ -1,6 +1,6 @@
 const http = require('http');
 require('dotenv').config();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 const express = require('express');
 const socketio = require('socket.io');
 const cors = require('cors');
@@ -59,7 +59,7 @@ io.on('connect', (socket) => {
   })
 });
 
-server.listen(process.env.PORT || 5000, () => console.log(`Server has started.`));
+server.listen(process.env.PORT || 5002, () => console.log(`Server has started.`));
 const signRoute = require("./routes/sign");
 const usersRoute = require("./routes/users");
 app.use("/sign",signRoute(dbHelpers));
