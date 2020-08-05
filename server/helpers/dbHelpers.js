@@ -12,7 +12,7 @@ module.exports= function(db){
 
   const getAllUsers = function() {
     const query= {
-      text:"SELECT id,name,email,city,postal_code,role,profile_pic From users",
+      text:"SELECT * From users",
     }
     return db.query(query)
     .then(result =>  result.rows)

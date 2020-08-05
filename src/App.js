@@ -45,7 +45,7 @@ class App extends Component {
       <Route path="/dashboard" component={Dashboard}/>
       <Route path="/pinboard" component={Pinboard}/>
       <Route path="/search" component={Search}/>
-      <Route path="/collaborate" component={Collaborate}/>
+    
     </Router>
     <div style={{height: "100%"}}>
       <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
