@@ -72,7 +72,7 @@ export default function Map(props) {
           onCloseClick={() => setSelected({})}
         >
           <div>
-            <img src={selected.profile_pic} width="100" height="100" />
+            <img src={selected.profile_pic} alt="pic" width="100" height="100" />
             <p>Name: {selected.name}</p>
             <p>Role: {selected.role}</p>
             <button>See Profile</button>
