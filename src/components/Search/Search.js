@@ -9,6 +9,9 @@ import Image from 'react-bootstrap/Image';
 
 const Search = (props) => {
   const [users,setUsers] = useState([]);
+  const [role,setRole] = useState();
+  const [city,setCity] = useState();
+  const [filteredUsers,setFilteredUsers] = useState([]);
   useEffect(()=>{
     axios.get('/users')
     .then(res => setUsers(res.data))
@@ -18,12 +21,29 @@ const Search = (props) => {
 
 const userList = users.map (user => <UserInd user={user}/>)
 
+
 return (
 
 <>
-  <Map users={users} />
+<label className="filter1" for="role">Select a role</label>
+  <select id="role" onChange={(event)=>setRole(event.target.value)}>
+      <option>Musician</option>
+      <option>Sound Engineer</option>
+      <option>Songwriter</option>
+</select>
 
+<label className="filter2" for="city">Select a city</label>
+<select id="city" onChange={(event)=>setCity(event.target.value)}>
+      <option>Montreal</option>
+      <option>Montreal</option>
+      <option>Vancouver</option>
+      <option>Ottawa</option>
+</select>
+
+  <Map users={users} />
   {userList}
+
+
 </>
 )
 }
