@@ -22,6 +22,8 @@ const Toolbar = props => (
             <li><a href="/pinboard">Pinboard</a></li>
             <li><a href="/chatbox/join">Chatbox</a></li>
             <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/signin">Sign In</a></li>
+            <li><a href="/signup">Create Account</a></li>
           </ul>
         </div>
       
@@ -33,7 +35,7 @@ const Toolbar = props => (
       <div></div>
       <div>
         <ul>
-          <li><h1>Hello. I am a footer</h1></li>
+          <li><h6>I am a footer</h6></li>
         </ul>
       </div>
     </nav>

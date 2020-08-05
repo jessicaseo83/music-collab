@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+
 import './Join.css';
 
 export default function SignIn() {
@@ -7,7 +8,6 @@ export default function SignIn() {
   const [room, setRoom] = useState('');
 
   return (
-   
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
         <h1 className="heading">Join</h1>

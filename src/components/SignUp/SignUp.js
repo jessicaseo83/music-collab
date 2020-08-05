@@ -1,14 +1,16 @@
 import React from "react";
 import  { useState } from "react";
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import "./SignUp.css"
+
 
 export default function SignIn(){
-  const [info,setInfo]=useState({name:"",birthday:"",email:"",password:"",city:"",postalCode:""})
+  const [info,setInfo]=useState({name:"",birthday:"",email:"",password:"",city:"",postalCode:"",role:""})
 
   return (
 
-    <Form className="m-5"onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
+    <Form className="signup-form"onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
       <h2>Sign Up</h2>
 
     <Form.Group controlId="user_name">
@@ -42,6 +44,14 @@ export default function SignIn(){
     required={true} 
     value={info.password}
      onChange={(event)=>setInfo({...info,password:event.target.value})}/>
+  </Form.Group>
+
+  <Form.Group controlId="user_role">
+      <Form.Label>Role</Form.Label>
+      <Form.Control type="text" placeholder="Enter role" 
+      required={true} 
+      value={info.role}
+      onChange={(event)=>setInfo({...info,role:event.target.value})}/>
   </Form.Group>
 
   <Form.Group controlId="user_city">
