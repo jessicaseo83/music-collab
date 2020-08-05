@@ -8,12 +8,13 @@ const Search = () => {
   useEffect(()=>{
     axios.get('/users')
     .then(res => setUsers(res.data))
-
+    
+    
   },[])
   return (
     <>
     <h1>Search</h1>
-    <Map />
+    <Map users={users} />
     </>
   )
 }
