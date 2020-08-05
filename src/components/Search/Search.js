@@ -19,8 +19,16 @@ const Search = (props) => {
     
   },[])
 
-const userList = users.map (user => <UserInd user={user}/>)
 
+
+// if the user clicks on the city, we want to return users from that city
+// users.city === city 
+if (city) {
+  const userCity = users.filter(user => user.city === city)
+  setFilteredUsers(userCity)
+}
+
+const userList = filteredUsers.map (user => <UserInd user={user}/>)
 
 return (
 
@@ -33,8 +41,7 @@ return (
 </select>
 
 <label className="filter2" for="city">Select a city</label>
-<select id="city" onChange={(event)=>setCity(event.target.value)}>
-      <option>Montreal</option>
+<select id="city" onChange={(event)=>{event.preventDefault(); setCity(event.target.value)}}>
       <option>Montreal</option>
       <option>Vancouver</option>
       <option>Ottawa</option>
