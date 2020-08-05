@@ -1,7 +1,10 @@
 const http = require('http');
+require('dotenv').config();
+const PORT = process.env.PORT || 8080;
 const express = require('express');
 const socketio = require('socket.io');
 const cors = require('cors');
+const bodyParser = require ('body-parser')
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
@@ -13,6 +16,14 @@ const io = socketio(server);
 
 app.use(cors());
 app.use(router);
+const { Pool } = require('pg');
+const dbParams = require('../lib/db.js');
+const db = new Pool(dbParams);
+db.connect();
+const dbHelpers = require('./helpers/dbHelpers')(db)
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 io.on('connect', (socket) => {
   socket.on('join', ({ name, room }, callback) => {
@@ -49,3 +60,14 @@ io.on('connect', (socket) => {
 });
 
 server.listen(process.env.PORT || 5000, () => console.log(`Server has started.`));
+const signRoute = require("./routes/sign");
+const usersRoute = require("./routes/users");
+app.use("/sign",signRoute(dbHelpers));
+app.use("/users",usersRoute(dbHelpers))
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
+app.listen(PORT , () => console.log(`Example app listening on port ${PORT}`));

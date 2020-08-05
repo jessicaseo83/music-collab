@@ -1,0 +1,21 @@
+.listings {
+  display:inline-block;
+}
+
+.list {
+  margin-top: 8.5rem;
+  margin-left: 5rem;
+  display: flex;
+  align-items: center;
+  column-count:4;
+}
+.images{
+  height:200px;
+  width: 200px;
+  overflow:hidden;
+  border-radius: 50%;
+}
+.card {
+  display:inline-block;
+  text-align: center;
+}
