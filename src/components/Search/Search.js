@@ -46,10 +46,8 @@ const Search = (props) => {
   
   },[city,role])
 
-  
 
 const userList = filteredUsers.map (user => <UserInd user={user}/>)
-
 
 return (
 
