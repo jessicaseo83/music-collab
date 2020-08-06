@@ -41,19 +41,23 @@ import Image from 'react-bootstrap/Image';
 
 const Pinboard = (props) => {
   const [ads,setAds] = useState([]);
+  const [collaborators, setCollaborators] = useState([]);
   useEffect(()=>{
-    axios.get('/ads')
+    Promise.all([axios.get('/ads'), axios.get('/collaborators')])
     .then(res => setAds(res.data))
+    .then(res => setCollaborators(res.data))
     
 
   },[])
 
 const adList = ads.map (ad => <AdInd ad={ad}/>)
+const collabList = collaborators.map (collaborator => <AdInd collaborator={collaborator}/>)
 
 return (
 
 <>
 {adList}
+{collabList}
 </>
 )
 }

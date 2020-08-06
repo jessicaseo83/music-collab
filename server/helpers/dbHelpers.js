@@ -21,7 +21,15 @@ module.exports= function(db){
   }
   const getAllAds = function () {
     const query= {
-      text:"SELECT * FROM ads JOIN users ON ads.user_id = users.id",
+      text:"SELECT ads.*, users.profile_pic, users.name FROM ads JOIN users  ON ads.user_id = users.id JOIN collaborators ON ads.id = collaborators.ad_id "
+    }
+    return db.query(query)
+    .then(result => result.rows)
+  }
+
+  const getAllCollaborators = function () {
+    const query= {
+      text:"SELECT collaborators.*, users.profile_pic FROM collaborators JOIN users ON collaborators.user_id = users.id"
     }
     return db.query(query)
     .then(result => result.rows)
@@ -45,6 +53,7 @@ module.exports= function(db){
     getUserByEmail,
     getAllUsers,
     saveUser,
-    getAllAds
+    getAllAds,
+    getAllCollaborators
   }
 }

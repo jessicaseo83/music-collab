@@ -6,7 +6,7 @@ import Image from 'react-bootstrap/Image'
 
 
 
-export default function AdInd ({ad}) {
+export default function AdInd ({ad},{collaborator}) {
   const [count, setCount] = useState(ad.positions_available)
 
   const onClick = () => {
@@ -29,6 +29,7 @@ return (
     <Card.Text>{ad.location}</Card.Text>
     <Card.Text>{ad.description}</Card.Text>
     <Card.Text>{ad.positions_available}</Card.Text>
+    <Card.Text>{collaborator.profile_pic}</Card.Text>
 <Button onClick={onClick} variant="primary" disabled={count===0}>Join</Button>
   </Card.Body>
 </Card>
