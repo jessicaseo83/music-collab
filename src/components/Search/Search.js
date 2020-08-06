@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import axios from 'axios'
-import Map from './map/map'
+import Map from './Map/Map'
 
 import "./Search.css"
 import UserInd from "./list/User.js"
@@ -60,3 +60,4 @@ return (
 
 
 export default Search;
+
