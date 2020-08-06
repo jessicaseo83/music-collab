@@ -4,7 +4,7 @@ import axios from 'axios'
 import Map from './map/map'
 
 import "./Search.css"
-import UserInd from "./User_Comp/User.js"
+import UserInd from "./list/User.js"
 import Image from 'react-bootstrap/Image';
 
 const Search = (props) => {
@@ -54,6 +54,9 @@ return (
 </>
 )
 }
+
+// dynamic rendering
+// map value ==2 and list ==4 
 
 
 export default Search;
