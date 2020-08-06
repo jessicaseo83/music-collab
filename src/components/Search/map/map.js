@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import Geocode from "react-geocode";
 
 
 const libraries = ["places"];
@@ -10,6 +11,7 @@ const mapContainerStyle = {
 
 
 export default function Map(props) {
+  Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
@@ -31,8 +33,20 @@ export default function Map(props) {
   };
   
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(success);
-  })
+    if (props.city) {
+      Geocode.fromAddress(props.city).then(
+        response => {
+          const location = response.results[0].geometry.location;
+          console.log(props.city)
+          console.log(location)
+          setCurrentPosition(location)
+        },
+      )}
+      else {
+        
+        navigator.geolocation.getCurrentPosition(success);
+      }
+  },[props.city])
 
 
   if(loadError) return "Error loading maps";
