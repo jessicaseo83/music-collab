@@ -4,8 +4,17 @@ import Card from 'react-bootstrap/Card'
 import { Button, CardGroup, CardColumns } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 
+
+
 export default function AdInd ({ad}) {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(ad.positions_available)
+
+  const onClick = () => {
+    if (count > 0){
+      setCount(count - 1)
+    }
+    console.log(count)
+  }
 
 return (   
   <>
@@ -18,7 +27,7 @@ return (
     <Card.Text>{ad.role}</Card.Text>
     <Card.Text>{ad.location}</Card.Text>
     <Card.Text>{ad.positions_available}</Card.Text>
-<Button onClick={()=> console.log(setCount(count + 1))} variant="primary">Join</Button>
+<Button onClick={onClick} variant="primary">Join</Button>
   </Card.Body>
 </Card>
 </CardColumns>

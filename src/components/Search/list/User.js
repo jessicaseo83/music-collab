@@ -14,6 +14,7 @@ return (
   <Card.Body>
     <Card.Title>{user.name}</Card.Title>
     <Card.Text>{user.city}</Card.Text>
+    <Card.Text>{user.role}</Card.Text>
     <Card.Text>{user.email}</Card.Text>
 <Button href="/dashboard" variant="primary">See profile</Button>
   </Card.Body>
