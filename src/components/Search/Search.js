@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import axios from 'axios'
-import Map from './Map/Map.js'
+import Map from './map/map.js'
 
 import "./Search.css"
 import UserInd from "./User_Comp/User.js"
@@ -79,7 +79,7 @@ return (
 
 
 
-  {view ==="map" &&<Map users={filteredUsers} />}
+  {view ==="map" &&<Map users={filteredUsers} city={city} />}
   {view ==="list" && userList}
 
 
