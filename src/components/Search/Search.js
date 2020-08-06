@@ -5,8 +5,7 @@ import Map from './Map/Map.js'
 
 import "./Search.css"
 import UserInd from "./User_Comp/User.js"
-import Image from 'react-bootstrap/Image';
-import Form from 'react-bootstrap/Form'
+
 
 const Search = (props) => {
   const [users,setUsers] = useState([]);
