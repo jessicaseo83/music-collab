@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Form.css"
 import Card from 'react-bootstrap/Card'
 import { Button, CardGroup, CardColumns } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
 
 export default function AdInd ({ad}) {
+  const [count, setCount] = useState(0)
+
 return (   
   <>
 <div className="listings">
@@ -15,7 +17,8 @@ return (
     <Card.Title>{ad.title}</Card.Title>
     <Card.Text>{ad.role}</Card.Text>
     <Card.Text>{ad.location}</Card.Text>
-<Button href="/dashboard" variant="primary">See profile</Button>
+    <Card.Text>{ad.positions_available}</Card.Text>
+<Button onClick={()=> console.log(setCount(count + 1))} variant="primary">Join</Button>
   </Card.Body>
 </Card>
 </CardColumns>
