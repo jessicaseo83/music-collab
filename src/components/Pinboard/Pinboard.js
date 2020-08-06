@@ -1,62 +1,27 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import axios from 'axios'
-
-
-import "./Pinboard.css"
-import UserInd from "./list/User.js"
+import AdInd from "./Form.js"
 import Image from 'react-bootstrap/Image';
+import { addListener } from 'nodemon';
 
-const Search = (props) => {
-  const [users,setUsers] = useState([]);
-  const [role,setRole] = useState();
-  const [city,setCity] = useState();
-  const [filteredUsers,setFilteredUsers] = useState([]);
+const Pinboard = (props) => {
+  const [ads,setAds] = useState([]);
   useEffect(()=>{
-    axios.get('/users')
-    .then(res => setUsers(res.data))
-    
-    
+    axios.get('/ads')
+    .then(res => setAds(res.data))
+
   },[])
 
-
-
-// if the user clicks on the city, we want to return users from that city
-// users.city === city 
-if (city) {
-  const userCity = users.filter(user => user.city === city)
-  setFilteredUsers(userCity)
-}
-
-const userList = filteredUsers.map (user => <UserInd user={user}/>)
+const adList = ads.map (ad => <AdInd ad={ad}/>)
 
 return (
 
 <>
-<label className="filter1" for="role">Select a role</label>
-  <select id="role" onChange={(event)=>setRole(event.target.value)}>
-      <option>Musician</option>
-      <option>Sound Engineer</option>
-      <option>Songwriter</option>
-</select>
-
-<label className="filter2" for="city">Select a city</label>
-<select id="city" onChange={(event)=>{event.preventDefault(); setCity(event.target.value)}}>
-      <option>Montreal</option>
-      <option>Vancouver</option>
-      <option>Ottawa</option>
-</select>
-
-  <Map users={users} />
-  {userList}
-
-
+{adList}
 </>
 )
 }
 
-// dynamic rendering
-// map value ==2 and list ==4 
 
-
-export default Search;
+export default Pinboard;

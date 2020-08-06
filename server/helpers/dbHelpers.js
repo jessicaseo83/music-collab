@@ -17,7 +17,18 @@ module.exports= function(db){
     return db.query(query)
     .then(result =>  result.rows)
 
+
   }
+  const getAllAds = function () {
+    const query= {
+      text:"SELECT * FROM ads",
+    }
+    return db.query(query)
+    .then(result => result.rows)
+  }
+
+
+
   const saveUser = function(info,location) {
     const query = {
       text:`INSERT INTO users (name, password, email, date_of_birth, city, postal_code, lat, lng, role, profile_pic)
@@ -33,6 +44,7 @@ module.exports= function(db){
   return {
     getUserByEmail,
     getAllUsers,
-    saveUser
+    saveUser,
+    getAllAds
   }
 }
