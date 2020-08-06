@@ -13,6 +13,7 @@ export default function AdInd ({ad}) {
     if (count > 0){
       setCount(count - 1)
     }
+    //disable button
     console.log(count)
   }
 
@@ -26,8 +27,9 @@ return (
     <Card.Title>{ad.title}</Card.Title>
     <Card.Text>{ad.role}</Card.Text>
     <Card.Text>{ad.location}</Card.Text>
+    <Card.Text>{ad.description}</Card.Text>
     <Card.Text>{ad.positions_available}</Card.Text>
-<Button onClick={onClick} variant="primary">Join</Button>
+<Button onClick={onClick} variant="primary" disabled={count===0}>Join</Button>
   </Card.Body>
 </Card>
 </CardColumns>
