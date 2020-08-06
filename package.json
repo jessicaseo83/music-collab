@@ -32,7 +32,8 @@
     "react-scripts": "3.4.1",
     "react-scroll-to-bottom": "^3.0.0",
     "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.0",
+    "use-image": "^1.0.6"
   },
   "scripts": {
     "local": "./node_modules/.bin/nodemon -L server/index.js",

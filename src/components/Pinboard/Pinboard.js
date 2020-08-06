@@ -1,43 +1,70 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
-import { Stage, Layer, Text } from 'react-konva';
-import Input from "./Form.js"
+import { Stage, Layer, Image } from 'react-konva';
+import useImage from 'use-image';
 
-class Pinboard extends Component {
-  state = {
-    isDragging: false,
-    x: 50,
-    y: 50
-  };
+const URLImage = ({ image }) => {
+  const [img] = useImage(image.src);
+  return (
+    <Image
+      image={img}
+      x={image.x}
+      y={image.y}
+      // I will use offset to set origin to the center of the image
+      offsetX={img ? img.width / 2 : 0}
+      offsetY={img ? img.height / 2 : 0}
+    />
+  );
+};
 
-  render() {
-    return (
-      <Stage width={window.innerWidth} height={window.innerHeight}>
-        <Layer>
-          <Text
-            text={Input}
-            x={this.state.x}
-            y={this.state.y}
-            draggable
-            fill={this.state.isDragging ? 'green' : 'black'}
-            onDragStart={() => {
-              this.setState({
-                isDragging: true
-              });
-            }}
-            onDragEnd={e => {
-              this.setState({
-                isDragging: false,
-                x: e.target.x(),
-                y: e.target.y()
-              });
-            }}
-          />
-        </Layer>
-      </Stage>
-    );
-  }
-}
+const Pinboard = () => {
+  const dragUrl = React.useRef();
+  const stageRef = React.useRef();
+  const [images, setImages] = React.useState([]);
+  return (
+    <div className="img">
+      Try to trag and image into the stage:
+      <br />
+      <img
+        alt="lion"
+        src="https://konvajs.org/assets/lion.png"
+        draggable="true"
+        onDragStart={e => {
+          dragUrl.current = e.target.src;
+        }}
+      />
+      <div
+        onDrop={e => {
+          // register event position
+          stageRef.current.setPointersPositions(e);
+          // add image
+          setImages(
+            images.concat([
+              {
+                ...stageRef.current.getPointerPosition(),
+                src: dragUrl.current
+              }
+            ])
+          );
+        }}
+        onDragOver={e => e.preventDefault()}
+      >
+        <Stage
+          width={window.innerWidth}
+          height={window.innerHeight}
+          style={{ border: '1px solid grey' }}
+          ref={stageRef}
+        >
+          <Layer>
+            {images.map(image => {
+              return <URLImage image={image} />;
+            })}
+          </Layer>
+        </Stage>
+      </div>
+    </div>
+  );
+};
 
 render(<Pinboard />, document.getElementById('root'));
 export default Pinboard;

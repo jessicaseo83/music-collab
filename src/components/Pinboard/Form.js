@@ -1,22 +1,20 @@
+  
+import React from 'react'
+import { Image } from 'react-konva';
+import useImage from 'use-image';
 
-import React from "react";
-import  { useState } from "react";
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import "./Form.css"
-
-
-export default function Input(){
+export default function UrlImage(props) {
+  const [img] = useImage(props.image.src);
   return (
-<>
-<input>Put text herealsdkhflas jkhdflasjkdhflvnajkshdfnc
-alskdjfhlasjdkafhldjkshvfn
-lasjdhkalvsjcfhlnsak
-asljfchsdlvfhjkan;lkjhnclfskajhn flk</input>
-</>
-
+    <Image
+      image={img}
+      x={props.image.x}
+      y={props.image.y}
+      offsetX={img ? img.width / 2 : 0}
+      offsetY={img ? img.height / 2 : 0}
+      draggable
+      width={200}
+      height={200}
+    />
   )
-
-
-}
-
+};
