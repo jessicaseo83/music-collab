@@ -80,7 +80,7 @@ return (
 
 
 
-  {view ==="map" &&<Map users={userList} />}
+  {view ==="map" &&<Map users={filteredUsers} />}
   {view ==="list" && userList}
 
 
