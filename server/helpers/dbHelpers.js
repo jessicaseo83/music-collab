@@ -21,7 +21,7 @@ module.exports= function(db){
   }
   const getAllAds = function () {
     const query= {
-      text:"SELECT * FROM ads",
+      text:"SELECT * FROM ads JOIN users ON ads.user_id = users.id",
     }
     return db.query(query)
     .then(result => result.rows)

@@ -10,6 +10,7 @@ return (
 <div className="listings">
 <CardColumns className="list">
 <Card style={{ width: '18rem' }}>
+  <Image className="images" variant="top" src={ad.profile_pic} roundedCircle />
   <Card.Body>
     <Card.Title>{ad.title}</Card.Title>
     <Card.Text>{ad.role}</Card.Text>
