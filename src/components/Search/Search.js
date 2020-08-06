@@ -13,7 +13,7 @@ const Search = (props) => {
   const [role,setRole] = useState("");
   const [city,setCity] = useState("");
   const [filteredUsers,setFilteredUsers] = useState([]);
-  const [view,setView]=useState("list")
+  const [view,setView]=useState("list");
   const clearFilters = function () {
     setCity("")
     setRole("")
@@ -70,6 +70,8 @@ return (
 </select>
 <button type="button" onClick={clearFilters}> Clear All Filters</button>
 
+
+
 <form onChange={(event) => setView(event.target.value)}>
 
 <input type="radio" id ="map" name="view" value="map" ></input>
@@ -80,8 +82,8 @@ return (
 
 
 
-  {view ==="map" &&<Map users={userList} />}
-  {view ==="list" && userList}
+  {view ==="map"  &&<Map users={userList} />}
+  {view ==="list"  && userList}
 
 
 </>

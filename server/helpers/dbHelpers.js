@@ -27,11 +27,13 @@ module.exports= function(db){
     .then(result => result.rows)
   }
 
-  const getAllCollaborators = function () {
+  //WHERE clause with a specific ad...ad_id
+
+  const getAllCollaborators = function (ad_id) {
     const query= {
-      text:"SELECT collaborators.*, users.profile_pic FROM collaborators JOIN users ON collaborators.user_id = users.id"
+      text:"SELECT collaborators.*, users.profile_pic FROM collaborators JOIN users ON collaborators.user_id = users.id WHERE $1 = collaborators.ad_id"
     }
-    return db.query(query)
+    return db.query(query,[ad_id])
     .then(result => result.rows)
   }
 
