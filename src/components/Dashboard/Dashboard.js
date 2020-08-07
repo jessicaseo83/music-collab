@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import Profile from './profile/profile'
-import Project from './project/project'
+import Profile from './Profile/Profile'
+import Project from './Project/Project'
 import './Dashboard.css'
 
 const Dashboard = (props) => {
