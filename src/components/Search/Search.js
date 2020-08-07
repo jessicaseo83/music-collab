@@ -14,6 +14,7 @@ const Search = (props) => {
   const [city,setCity] = useState("");
   const [filteredUsers,setFilteredUsers] = useState([]);
   const [view,setView]=useState("list");
+  
   const clearFilters = function () {
     setCity("")
     setRole("")
@@ -25,14 +26,11 @@ const Search = (props) => {
     .then(res => {
       setUsers(res.data)
       setFilteredUsers(res.data)
-    })
-    
-    
-    
+    }) 
   },[])
   
-  useEffect(()=>{
-    let usersArray = users
+  useEffect(() => {
+    let usersArray = users;
     if (city) {
        usersArray = usersArray.filter(user => user.city === city)
      
