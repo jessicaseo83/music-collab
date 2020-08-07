@@ -29,7 +29,7 @@ export default function AdInd ({ad}) {
     if (count > 0){
       setCount(count - 1)
     }
-    axios.post('/collaborators')
+    axios.post(`/ads/${ad.id}/collaborators`)
       .then(res => {
         setCollaborators(res.data)
         console.log(setCollaborators)
