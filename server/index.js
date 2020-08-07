@@ -67,12 +67,23 @@ io.on('connect', (socket) => {
 server.listen(process.env.PORT || 5002, () => console.log(`Server has started.`));
 const signRoute = require("./routes/sign");
 const usersRoute = require("./routes/users");
+<<<<<<< HEAD
 const dashboardRoute = require("./routes/dashboard");
 
 
 app.use("/sign",signRoute(dbHelpers));
 app.use("/users",usersRoute(dbHelpers))
 app.use("/dashboard", dashboardRoute(dbHelpers))
+=======
+const adsRoute = require("./routes/ads");
+const collaboratorsRoute = require("./routes/collaborators");
+
+app.use("/sign",signRoute(dbHelpers));
+app.use("/users",usersRoute(dbHelpers));
+app.use("/ads",adsRoute(dbHelpers));
+app.use("/collaborators",collaboratorsRoute(dbHelpers));
+
+>>>>>>> features/pinboard
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

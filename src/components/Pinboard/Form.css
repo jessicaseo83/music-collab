@@ -1,0 +1,42 @@
+.listings {
+  display:inline-block;
+}
+
+.list {
+  margin-top: 8.5rem;
+  margin-left: 5rem;
+  display: flex;
+  align-items: center;
+  column-count:4;
+}
+
+.list:hover, 
+.list:active {
+  color: grey;
+  cursor: pointer;
+}
+.image{
+  height:200px;
+  width: 200px;
+  overflow:hidden;
+  border-radius: 50%;
+}
+.card {
+  display:inline-block;
+  text-align: center;
+}
+
+.avatars {
+  display: flex;
+  direction: row;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.avatars:hover,
+.avatars:active {
+  color: orange;
+
+}

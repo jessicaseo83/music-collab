@@ -17,7 +17,28 @@ module.exports= function(db){
     return db.query(query)
     .then(result =>  result.rows)
 
+
   }
+  const getAllAds = function () {
+    const query= {
+      text:"SELECT ads.*, users.profile_pic, users.name FROM ads JOIN users  ON ads.user_id = users.id JOIN collaborators ON ads.id = collaborators.ad_id "
+    }
+    return db.query(query)
+    .then(result => result.rows)
+  }
+
+  //WHERE clause with a specific ad...ad_id
+
+  const getAllCollaborators = function (ad_id) {
+    const query= {
+      text:"SELECT collaborators.*, users.profile_pic FROM collaborators JOIN users ON collaborators.user_id = users.id WHERE $1 = collaborators.ad_id"
+    }
+    return db.query(query,[ad_id])
+    .then(result => result.rows)
+  }
+
+
+
   const saveUser = function(info,location) {
     const query = {
       text:`INSERT INTO users (name, password, email, date_of_birth, city, postal_code, lat, lng, role, profile_pic)
@@ -44,6 +65,11 @@ module.exports= function(db){
     getUserByEmail,
     getAllUsers,
     saveUser,
+<<<<<<< HEAD
     getProject
+=======
+    getAllAds,
+    getAllCollaborators
+>>>>>>> features/pinboard
   }
 }

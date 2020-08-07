@@ -1,10 +1,11 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import axios from 'axios'
-import Map from './map/map.js'
+import Map from "./Map/Map.js"
 
 import "./Search.css"
-import UserInd from "./User_Comp/User.js"
+import UserInd from "./list/User.js"
+
 
 
 const Search = (props) => {
@@ -12,7 +13,8 @@ const Search = (props) => {
   const [role,setRole] = useState("");
   const [city,setCity] = useState("");
   const [filteredUsers,setFilteredUsers] = useState([]);
-  const [view,setView]=useState("list")
+  const [view,setView]=useState("list");
+  
   const clearFilters = function () {
     setCity("")
     setRole("")
@@ -24,14 +26,11 @@ const Search = (props) => {
     .then(res => {
       setUsers(res.data)
       setFilteredUsers(res.data)
-    })
-    
-    
-    
+    }) 
   },[])
   
-  useEffect(()=>{
-    let usersArray = users
+  useEffect(() => {
+    let usersArray = users;
     if (city) {
        usersArray = usersArray.filter(user => user.city === city)
      
@@ -69,6 +68,8 @@ return (
 </select>
 <button type="button" onClick={clearFilters}> Clear All Filters</button>
 
+
+
 <form onChange={(event) => setView(event.target.value)}>
 
 <input type="radio" id ="map" name="view" value="map" ></input>
@@ -87,5 +88,9 @@ return (
 )
 }
 
+// dynamic rendering
+// map value ==2 and list ==4 
+
 
 export default Search;
+

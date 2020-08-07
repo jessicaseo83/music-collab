@@ -4,12 +4,44 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import "./SignUp.css"
 
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Slider from '@material-ui/core/Slider';
+
+const useStyles = makeStyles({
+  root: {
+    height: 100,
+  },
+});
+
+function valuetext(value) {
+  return `${value}`;
+}
+
+const marks = [
+  {
+    value: 25,
+    label: '25',
+  },
+  {
+    value: 50,
+    label: '50',
+  },
+  {
+    value: 75,
+    label: '75',
+  },
+  {
+    value: 100,
+    label: '100',
+  }
+];
 
 export default function SignIn(){
   const [info,setInfo]=useState({name:"",birthday:"",email:"",password:"",city:"",postalCode:"",role:""})
-
+  const classes = useStyles();
   return (
-
+    
     <Form className="signup-form"onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
       <h2>Sign Up</h2>
 
@@ -19,14 +51,6 @@ export default function SignIn(){
       required={true} 
       value={info.name}
       onChange={(event)=>setInfo({...info,name:event.target.value})}/>
-  </Form.Group>
-
-  <Form.Group controlId="user_birth">
-      <Form.Label>Birthday</Form.Label>
-      <Form.Control type="date" placeholder="Birthday" 
-      required={true} 
-      value={info.birthday}
-      onChange={(event)=>setInfo({...info,birthday:event.target.value})}/>
   </Form.Group>
 
   <Form.Group controlId="user_email">
@@ -46,12 +70,51 @@ export default function SignIn(){
      onChange={(event)=>setInfo({...info,password:event.target.value})}/>
   </Form.Group>
 
-  <Form.Group controlId="user_role">
-      <Form.Label>Role</Form.Label>
-      <Form.Control type="text" placeholder="Enter role" 
+  <Form.Group controlId="user_birth">
+      <Form.Label>Date of birth</Form.Label>
+      <Form.Control type="date" placeholder="Birthday" 
       required={true} 
-      value={info.role}
-      onChange={(event)=>setInfo({...info,role:event.target.value})}/>
+      value={info.birthday}
+      onChange={(event)=>setInfo({...info,birthday:event.target.value})}/>
+  </Form.Group>
+
+
+  <Form.Group controlId="user_role">
+      <Form.Label>What's your role in the music industry?</Form.Label>
+      <Form.Control as="select" onChange={(event)=>setInfo({...info,role:event.target.value})} required={true}>
+      <option>Sound Engineer</option>
+      <option>Producer</option>
+      <option>Musician</option>
+      <option>Songwriter</option>
+      <option>Composition</option>
+      </Form.Control>
+  </Form.Group>
+
+  <Form.Group>
+    <p>What is your experience with these tools</p>
+      <Typography id="vertical-slider" gutterBottom>Cubase</Typography>
+      <div className={classes.root}>
+        <Slider
+          valueLabelDisplay="on"
+          orientation="vertical"
+          getAriaValueText={valuetext}
+          defaultValue={25}
+          aria-labelledby="vertical-slider"
+        />
+      </div>
+      <Typography id="vertical-slider" gutterBottom>Logic</Typography>
+      <div className={classes.root}>
+        <Slider
+          valueLabelDisplay="on"
+          orientation="vertical"
+          getAriaValueText={valuetext}
+          defaultValue={25}
+          aria-labelledby="vertical-slider"
+        />
+      </div>
+  </Form.Group>
+  <Form.Group>
+    <Form.File id="file" label="Upload a profile picture" />
   </Form.Group>
 
   <Form.Group controlId="user_city">
@@ -80,8 +143,6 @@ export default function SignIn(){
     Submit
   </Button>
 </Form>
-
-
   )
 
 

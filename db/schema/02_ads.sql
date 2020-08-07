@@ -7,6 +7,7 @@ CREATE TABLE ads (
   role VARCHAR(255) NOT NULL,
   location VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
+  positions_available INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT now(),
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 )
