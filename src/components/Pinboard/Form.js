@@ -25,14 +25,16 @@ export default function AdInd ({ad}) {
   const [filteredAds,setFilteredAds] = useState([]);
 
   //<---------------HELPER FUNCTIONS---------------->
+ 
+
   const onClick = () => {
     if (count > 0){
       setCount(count - 1)
     }
-    axios.post(`/ads/${ad.id}/collaborators`)
+    axios.put(`/ads/${ad.id}/collaborators`)
       .then(res => {
         setCollaborators(res.data)
-        console.log(setCollaborators)
+        console.log("What are the setCollaborators=>", setCollaborators)
       })
       .catch((err) => {
         console.log("You got this right, but there's no user authentification yet.")

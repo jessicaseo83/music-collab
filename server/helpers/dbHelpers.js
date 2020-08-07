@@ -37,6 +37,15 @@ module.exports= function(db){
     .then(result => result.rows)
   }
 
+  const addToCollaborators = function (ad_id, user_id) {
+    const query = {
+      text: `INSERT INTO collaborators (ad_id, user_id)
+      VALUES($1,$2) Returning *`,
+      values:[ad_id, user_id]
+    }
+    return db.query(query)
+    .then(res => res.rows[0])
+  }
 
 
   const saveUser = function(info,location) {
@@ -56,6 +65,7 @@ module.exports= function(db){
     getAllUsers,
     saveUser,
     getAllAds,
-    getAllCollaborators
+    getAllCollaborators,
+    addToCollaborators
   }
 }

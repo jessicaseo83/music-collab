@@ -14,6 +14,13 @@ module.exports = ({getAllAds, getAllCollaborators}) => {
       console.log("String",collaborators)
       res.send(collaborators)})
   })
+  router.post("/collaborators", (req,res) => {
+    addToCollaborators(req.params.id)
+    .then(collaborators => {
+      console.log("These are my collaborators=>", collaborators.name)
+      res.send(collaborators)
+    })
+  })
 return router;
 }
 
