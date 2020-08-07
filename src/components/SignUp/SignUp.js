@@ -102,6 +102,16 @@ export default function SignIn(){
           aria-labelledby="vertical-slider"
         />
       </div>
+      <Typography id="vertical-slider" gutterBottom>Logic</Typography>
+      <div className={classes.root}>
+        <Slider
+          valueLabelDisplay="on"
+          orientation="vertical"
+          getAriaValueText={valuetext}
+          defaultValue={25}
+          aria-labelledby="vertical-slider"
+        />
+      </div>
   </Form.Group>
   <Form.Group>
     <Form.File id="file" label="Upload a profile picture" />
