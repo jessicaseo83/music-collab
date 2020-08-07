@@ -7,7 +7,11 @@ module.exports = ({getUserByEmail}) => {
     const {email,password}=req.body;
     getUserByEmail(email)
     .then(user => validatePassword(user,password))
-    .then(user => res.send(user))
+    .then(user => {
+      res.session[userId] = user.id;
+      res.status(200)
+      res.send({ name: user.name, pic: user.profile_pic})
+    })
     .catch(err => res.status(err.status).send(err.message))
   });
   return router;

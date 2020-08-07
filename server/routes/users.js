@@ -6,8 +6,16 @@ const {getGeoLocation} = require('../helpers/geoLocation')
 
 module.exports = ({getAllUsers,saveUser}) => {
   router.get("/", (req, res) => {
-    getAllUsers()
-    .then(users => res.send(users))
+    const userId = req.session.userId;
+    if(userId){  
+      getAllUsers()
+      .then(users => {
+        res.status(200)
+        res.send(users)
+      })
+    } else {
+      res.status(403)
+    }
   });
 
   router.post("/",(req,res)=>{
@@ -15,7 +23,10 @@ module.exports = ({getAllUsers,saveUser}) => {
     info.password = encryptPassword(info.password);
     getGeoLocation(info["postalCode"])
     .then(location => saveUser(info,location))
-    .then(user => res.send(user))
+    .then(user => {
+      res.session[userId] = user.id;
+      res.status(200)
+      res.send({ name: user.name, pic: user.profile_pic})
   })
   return router;
-};
+})};
