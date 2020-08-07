@@ -5,7 +5,7 @@ import Map from './Map/Map.js'
 
 import "./Search.css"
 import UserInd from "./list/User.js"
-import Switch from 'react-toggle-switch'
+
 
 
 const Search = (props) => {
@@ -80,8 +80,8 @@ return (
 
 
 
-  {view ==="map"  &&<Map users={userList} />}
-  {view ==="list"  && userList}
+  {view ==="map" &&<Map users={filteredUsers} city={city} />}
+  {view ==="list" && userList}
 
 
 </>
