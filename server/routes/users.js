@@ -24,9 +24,11 @@ module.exports = ({getAllUsers,saveUser}) => {
     getGeoLocation(info["postalCode"])
     .then(location => saveUser(info,location))
     .then(user => {
-      res.session[userId] = user.id;
+      res.session["userId"] = user.id;
       res.status(200)
       res.send({ name: user.name, pic: user.profile_pic})
   })
-  return router;
-})};
+})
+
+return router;
+};

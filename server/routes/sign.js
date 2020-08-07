@@ -8,7 +8,7 @@ module.exports = ({getUserByEmail}) => {
     getUserByEmail(email)
     .then(user => validatePassword(user,password))
     .then(user => {
-      res.session[userId] = user.id;
+      res.session["userId"] = user.id;
       res.status(200)
       res.send({ name: user.name, pic: user.profile_pic})
     })
