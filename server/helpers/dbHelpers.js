@@ -65,11 +65,8 @@ module.exports= function(db){
     getUserByEmail,
     getAllUsers,
     saveUser,
-<<<<<<< HEAD
-    getProject
-=======
+    getProject,
     getAllAds,
     getAllCollaborators
->>>>>>> features/pinboard
   }
 }
