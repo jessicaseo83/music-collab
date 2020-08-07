@@ -1,5 +1,5 @@
-import React from "react";
-import './profile.css';
+import React from "react"
+// import './profile.css';
 
 export default function Profile (props){
   const user = props.profile;
