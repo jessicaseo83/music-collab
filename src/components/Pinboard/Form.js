@@ -4,7 +4,6 @@ import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import { Button, CardGroup, CardColumns } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image'
-import Adlist from './Form.js'
 import styled from 'styled-components';
 
 const HoverText = styled.p`
@@ -18,11 +17,11 @@ const HoverText = styled.p`
 
 export default function AdInd ({ad}) {
   const [collaborators, setCollaborators] = useState([]);
-  const [ads,setAds] = useState([]);
+  // const [ads,setAds] = useState([]);
   const [count, setCount] = useState(ad.positions_available);
-  const [role,setRole] = useState("");
-  const [location,setLocation] = useState("");
-  const [genre,setGenre] = useState("");
+  // const [role,setRole] = useState("");
+  // const [location,setLocation] = useState("");
+  // const [genre,setGenre] = useState("");
   const [filteredAds,setFilteredAds] = useState([]);
 
   //<---------------HELPER FUNCTIONS---------------->
@@ -30,13 +29,20 @@ export default function AdInd ({ad}) {
     if (count > 0){
       setCount(count - 1)
     }
-  }
-
-  const clearFilters = function () {
-    setLocation("")
-    setRole("")
-    setGenre("")
-  }
+    axios.post('/collaborators')
+      .then(res => {
+        setCollaborators(res.data)
+        console.log(setCollaborators)
+      })
+      .catch((err) => {
+        console.log("You got this right, but there's no user authentification yet.")
+      })
+    }
+  // const clearFilters = function () {
+  //   setLocation("")
+  //   setRole("")
+  //   setGenre("")
+  // }
 
 
   useEffect(() =>{
@@ -47,18 +53,18 @@ export default function AdInd ({ad}) {
     })
   }, [ad])
 
-  useEffect(() => {
-    let adsArray = ads;
-    if (location) {
-      adsArray = adsArray.filter(ad => ad.location === location) 
-    }
-    if (role) {
-      adsArray = adsArray.filter(ad => ad.role === role)
-    }
-    if (genre) {
-      adsArray = adsArray.filter(ad => ad.genre === genre)
-    }
-  }, [location, role, genre])
+  // useEffect(() => {
+  //   let adsArray = ads;
+  //   if (location) {
+  //     adsArray = adsArray.filter(ad => ad.location === location) 
+  //   }
+  //   if (role) {
+  //     adsArray = adsArray.filter(ad => ad.role === role)
+  //   }
+  //   if (genre) {
+  //     adsArray = adsArray.filter(ad => ad.genre === genre)
+  //   }
+  // }, [location, role, genre])
 
   const collabImg = collaborators.map(c => <Image className="avatars" variant="top" src={c.profile_pic} roundedCircle />)
   console.log("Collab =>",collabImg.Objectkeys)
@@ -100,7 +106,9 @@ return (
     <Card.Text>Positions available: {ad.positions_available}</Card.Text>
     <div className="avatars">{collabImg}</div>
    <br></br>
-<Button onClick={onClick} variant="primary" disabled={count===0}>Join project</Button>
+  <form method="post">
+  <Button type="submit" onClick={onClick} variant="primary" disabled={count===0}>Join project</Button>
+  </form>
   </Card.Body>
 </Card>
 </CardColumns>
