@@ -67,6 +67,7 @@ module.exports= function(db){
 
       return db.query(query)
       .then(res => res.rows[0])
+      .catch(err => Promise.reject(err))
 
   }
 
