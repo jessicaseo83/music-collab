@@ -27,8 +27,7 @@ module.exports = ({getAllUsers,saveUser}) => {
       res.session["userId"] = user.id;
       res.status(200)
       res.send({ name: user.name, pic: user.profile_pic})
+    })
   })
-})
-
 return router;
 };
