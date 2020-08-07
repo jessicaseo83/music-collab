@@ -1,8 +1,34 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import Profile from './profile/profile'
+import Project from './project/project'
+import './Dashboard.css'
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+  const [project, setProject] = useState([])
+  const [profile, setProfile] = useState([])
+
+  useEffect(()=>{
+    axios.get('/dashboard')
+     .then(res => {
+       setProject(res.data)
+       setProfile(res.data[0])
+     })
+ 
+  },[])
+
+  
   return (
-    <h1>Dashboard</h1>
+    
+    <main>
+      <section className="profile">
+        <Profile profile={profile}/>
+      </section>
+      <section className="project">
+        <Project project={project}/>
+      </section>
+    </main>
+    
   )
 }
 
