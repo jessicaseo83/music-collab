@@ -51,7 +51,9 @@ class App extends Component {
       <Route path="/search" component={Search}/>
       <Route path="/" component={SignIn}/>
       <Route path="/signup" component={SignUp}/>
+      <Route path="/logout" component={SignIn}/>
       <Route path="/myprojects" component={MyProjects}/>
+      
     
 
     </Router>

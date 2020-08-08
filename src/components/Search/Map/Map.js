@@ -90,7 +90,7 @@ export default function Map(props) {
             <img src={selected.profile_pic} alt="pic" width="100" height="100" />
             <p>Name: {selected.name}</p>
             <p>Role: {selected.role}</p>
-            <Button href="http://localhost:3000/dashboard">See Profile</Button>
+            <Button href="http://localhost:3000/:id/dashboard"> See Profile</Button>
           </div>
         </InfoWindow>
         

@@ -1,11 +1,10 @@
 
 const express = require('express');
-// const { default: Project } = require('../../src/components/Dashboard/Project/Project');
 const router = express.Router();
 
 
 module.exports = ({getProject, addToProjects}) => {
-  router.get("/", (req, res) => {
+  router.get("/dashboard", (req, res) => {
     const userId = req.session.userId;
     if(userId){
       getProject(userId)
@@ -16,7 +15,10 @@ module.exports = ({getProject, addToProjects}) => {
       })
     }
   })
+
+
   
+
   router.post("/", (req,res) => {
     addToProjects(req.params)
     .then(proj => {

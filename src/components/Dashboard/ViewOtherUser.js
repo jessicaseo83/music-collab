@@ -10,15 +10,13 @@ import { Container } from 'react-bootstrap'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-const Dashboard = (props) => {
+const ViewDashboard = (props) => {
   const [project, setProject] = useState([])
   const [profile, setProfile] = useState([])
-  // const [myProject, setMyProject] = useState([])
   const [show, setShow] = useState(false)
 
-
   useEffect(()=>{
-    axios.get("/dashboard")
+    axios.get("/:id")
      .then(res => {
        setProject(res.data)
        setProfile(res.data[0])
@@ -50,5 +48,4 @@ const Dashboard = (props) => {
   )
 }
 
-export default Dashboard;
-
+export default ViewDashboard;
