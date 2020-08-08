@@ -1,18 +1,16 @@
 
 
-main {
+.main {
   margin-top: 300px;
   display: flex;
+  margin-bottom: 200px;
 }
 
 .profile {
-  display: flex;
-  justify-content: center;
-  border: solid black;
-  flex: 1 1 30%;
+  display: inline-block;
+  width: 100%;
 }
 .project {
   display: flex;
-  border: solid grey;
-  flex: 1 1 70%
+  width: 100%;
 }

@@ -3,45 +3,14 @@ import  { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
 
-const useStyles = makeStyles({
-  root: {
-    height: 100,
-  },
-});
-
-function valuetext(value) {
-  return `${value}`;
-}
-
-const marks = [
-  {
-    value: 25,
-    label: '25',
-  },
-  {
-    value: 50,
-    label: '50',
-  },
-  {
-    value: 75,
-    label: '75',
-  },
-  {
-    value: 100,
-    label: '100',
-  }
-];
 
 export default function MyProjects(){
-  const [info,setInfo]=useState({title:"", description:"",url:"", image:""})
-  const classes = useStyles();
+  const [info, setInfo] = useState({title:"", description:"",url:"", image:""})
+  
   return (
     
-    <Form className="my-projects-form"onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
+    <Form className="my-projects-form" onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
       <h2>My Projects Portfolio</h2>
 
     <Form.Group controlId="title">
@@ -50,15 +19,15 @@ export default function MyProjects(){
       required={true} 
       value={info.title}
       onChange={(event)=>setInfo({...info,title:event.target.value})}/>
-  </Form.Group>
+    </Form.Group>
 
-  <Form.Group controlId="description">
-    <Form.Label>Description</Form.Label>
-    <Form.Control type="description" placeholder="Add a description" 
-    required={true} 
-    value={info.description}
-    autoComplete="none"
-    onChange={(event)=>setInfo({...info,description:event.target.value})}/>
+    <Form.Group controlId="description">
+      <Form.Label>Description</Form.Label>
+      <Form.Control type="description" placeholder="Add a description" 
+      required={true} 
+      value={info.description}
+      autoComplete="none"
+      onChange={(event)=>setInfo({...info,description:event.target.value})}/>
   </Form.Group>
 
   <Form.Group controlId="url">
@@ -74,9 +43,7 @@ export default function MyProjects(){
   </Form.Group>
 
  
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
+  <Button variant="primary" type="submit">+</Button>
 </Form>
   )
 

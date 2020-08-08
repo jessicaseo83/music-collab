@@ -57,6 +57,16 @@ module.exports= function(db){
     .then(res => res.rows[0])
   }
 
+  // const addToProjects = function (title, description, url, pic, user_id) {
+  //   const query = {
+  //     text: `INSERT INTO projects (title, description, url, pic, user_id)
+  //     VALUES ($1,$2,$3,$4,$5) Returning *`,
+  //     values:[title, description, url, pic, user_id]
+  //   }
+  //   return db.query(query)
+  //   .then(res => res.rows[0])
+  // }
+
 
   const saveUser = function(info,location) {
     const query = {
@@ -88,6 +98,7 @@ module.exports= function(db){
     getAllAds,
     getAllCollaborators,
     addToCollaborators,
-    getUser
+    getUser,
+    // addToProjects
   }
 }

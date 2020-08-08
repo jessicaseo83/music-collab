@@ -8,6 +8,7 @@ import Pinboard from './components/Pinboard/Pinboard';
 import Search from './components/Search/Search';
 import SignIn from './components/SignIn/SignIn.js'
 import SignUp from './components/SignUp/SignUp.js'
+import Project from './components/Dashboard/Project/Project.js'
 import MyProjects from './components/Dashboard/Project/Project.js'
 
 import Toolbar from "./components/Toolbar/Toolbar";
