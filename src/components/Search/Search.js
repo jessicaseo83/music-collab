@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import axios from 'axios'
-import Map from "./Map/Map.js"
+import Map from "./map/Map.js"
 
 import "./Search.css"
 import UserInd from "./list/User.js"

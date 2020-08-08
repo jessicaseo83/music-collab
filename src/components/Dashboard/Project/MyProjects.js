@@ -2,15 +2,19 @@ import React from "react";
 import  { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios'
 
 
 
 export default function MyProjects(){
-  const [info, setInfo] = useState({title:"", description:"",url:"", image:""})
+  const [info, setInfo] = useState({title:"", description:"",url:"", pic:""})
+  const submitForm = () => {
+    axios.post("/dashboard", info).then(console.log("test"))
+  }
   
   return (
     
-    <Form className="my-projects-form" onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
+    <Form className="my-projects-form" onSubmit={(event)=> {event.preventDefault();console.log(info); submitForm()}} autoComplete="off">
       <h2>My Projects Portfolio</h2>
 
     <Form.Group controlId="title">
@@ -38,8 +42,12 @@ export default function MyProjects(){
      onChange={(event)=>setInfo({...info,url:event.target.value})}/>
   </Form.Group>
   
-  <Form.Group>
-    <Form.File id="file" label="Upload a profile picture" />
+  <Form.Group controlId="url">
+    <Form.Label>Img</Form.Label>
+    <Form.Control type="pic" placeholder="Link" 
+    required={true} 
+    value={info.pic}
+     onChange={(event)=>setInfo({...info,pic:event.target.value})}/>
   </Form.Group>
 
  

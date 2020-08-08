@@ -6,6 +6,7 @@ const getGeoLocation = function(postalCode) {
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${postalCode}&key=${googleApikey}`
   return axios.get(url)
   .then(res => res.data.results[0].geometry.location)
+  .catch(err => Promise.reject(err))
 }
 
 

@@ -1,5 +1,6 @@
 import React from "react";
 import './Project.css';
+import axios from 'axios';
 
 export default function Project (props){
   const projects = props.project;
@@ -8,7 +9,7 @@ export default function Project (props){
   return (
     <div>
       <h3>My Projects</h3>
-      {/* {projects.map(project => (
+      {projects.map(project => (
         <div>
           <img className="project_pic" src={project.pic}/>
           <h4>{project.title}</h4>
@@ -16,7 +17,7 @@ export default function Project (props){
           <a href={project.url}>Check here!</a>
         </div>
       ))
-      } */}
+      }
     </div>
   )
 }
