@@ -1,5 +1,5 @@
 import React from "react";
-// import './project.css';
+import './Project.css';
 
 export default function Project (props){
   const projects = props.project;
@@ -7,10 +7,13 @@ export default function Project (props){
 
   return (
     <div>
-      <h3></h3>
+      <h3>My Project</h3>
       {projects.map(project => (
-        <p>link
-        <a href={project.url}/>
+        <p>
+          <img className="project_pic" src={project.pic}/>
+          <h4>{project.title}</h4>
+          <p>{project.description}</p>
+          <a href={project.url}>Check here!</a>
         </p>
       ))
       }

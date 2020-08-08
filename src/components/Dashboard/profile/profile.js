@@ -1,5 +1,5 @@
 import React from "react"
-// import './profile.css';
+import './Profile.css';
 
 export default function Profile (props){
   const user = props.profile;
@@ -15,3 +15,4 @@ export default function Profile (props){
     </div>
   )
 }
+
