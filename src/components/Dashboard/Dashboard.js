@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Profile from './Profile/Profile'
 import Project from './Project/Project'
+import MyProjects from './Project/MyProjects'
 import './Dashboard.css'
 
 const Dashboard = (props) => {
@@ -27,6 +28,7 @@ const Dashboard = (props) => {
       <section className="project">
         <Project project={project}/>
       </section>
+      <button variant="primary" type="submit" onClick={(event) => <MyProjects/>}>+ Add project</button>
     </main>
     
   )
