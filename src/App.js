@@ -1,5 +1,6 @@
 
-import React, { Component} from 'react';
+import React, { Component, useState} from 'react';
+import Cookies from "js-cookie"
 
 import Chat from './components/Chatbox/Chat/Chat';
 import Join from './components/Chatbox/Join/Join';
@@ -14,12 +15,15 @@ import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop"
 
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, BrowserRouter } from "react-router-dom";
 
 class App extends Component {
   state= {
-    sideDrawerOpen: false
-  }
+    sideDrawerOpen: false,
+    loggedIn:Cookies.get('user')
+
+    }
+  
   drawerToggleClickHandler= () => {
     this.setState((prevState) => {
       return{sideDrawerOpen: !prevState.sideDrawerOpen};
@@ -28,7 +32,19 @@ class App extends Component {
 
   backdropClickHandler =() => {
     this.setState({sideDrawerOpen: false});
-  }
+  };
+
+  loggedIn =()=>{
+      Cookies.set('user',true)
+  };
+    
+    
+  
+
+  loggedOut =()=>{
+    Cookies.remove('user')
+    
+  };
 
   render() {
 
@@ -39,20 +55,49 @@ class App extends Component {
     sideDrawer = <SideDrawer/>;
     backdrop = <Backdrop click={this.backdropClickHandler}/>;
   }
+  
   return (
     <>
     <Router>
-      <Route path="/chatbox/join" exact component={Join} />
-      <Route path="/chat" component={Chat} />
-      <Route path="/dashboard" component={Dashboard}/>
-      <Route path="/pinboard" component={Pinboard}/>
-      <Route path="/search" component={Search}/>
-      <Route path="/signin" component={SignIn}/>
-      <Route path="/signup" component={SignUp}/>
+
+      <Route path="/chatbox/join">
+       {this.state.loggedIn?<Join/>:<Redirect to ="/signin" />} 
+      </Route>
+
+      <Route path="/chat">
+        {this.state.loggedIn? <Chat/>:<Redirect to ="/signin" />} 
+       
+      </Route> 
+
+
+      <Route path="/dashboard">
+        {this.state.loggedIn? <Dashboard/>:<Redirect to ="/signin" />}
+        
+      </Route> 
+
+      <Route path="/pinboard">
+        {this.state.loggedIn? <Pinboard/>:<Redirect to ="/signin" />}
+        
+      </Route>
+
+      <Route path="/search">
+        {this.state.loggedIn?  <Search/>:<Redirect to ="/signin" />}
+       
+      </Route>
+
+      <Route path="/signin">
+        {this.state.loggedIn?  <Search/>:<SignIn loggedIn={this.loggedIn} />}
+        
+      </Route>
+
+      <Route path="/signup">
+        {this.state.loggedIn?  <Search/>:<SignUp loggedIn={this.loggedIn}/>}
+        
+      </Route>
 
     </Router>
     <div style={{height: "100%"}}>
-      <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
+      <Toolbar drawerClickHandler={this.drawerToggleClickHandler} loggedIn ={this.state.loggedIn}/>
       {sideDrawer}
       {backdrop}
     </div>
@@ -60,5 +105,6 @@ class App extends Component {
   );
 }
 }
+
 
 export default App;

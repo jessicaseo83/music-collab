@@ -1,0 +1,18 @@
+
+
+main {
+  margin-top: 300px;
+  display: flex;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  border: solid black;
+  flex: 1 1 30%;
+}
+.project {
+  display: flex;
+  border: solid grey;
+  flex: 1 1 70%
+}

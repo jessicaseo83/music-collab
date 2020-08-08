@@ -55,6 +55,14 @@ padding: 0.5rem;
   color: orange;
 }
 
+
+
+.main-footer {
+  background-color: grey;
+  display: block;
+  padding-top: 50vh;
+}
+
 @media (max-width: 768px) {
   .nav-pages li {
     display: none;

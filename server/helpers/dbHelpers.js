@@ -67,13 +67,25 @@ module.exports= function(db){
 
       return db.query(query)
       .then(res => res.rows[0])
+      .catch(err => Promise.reject(err))
 
-    }
+  }
+
+ const getProject = function () {
+  const query = {
+    text: `SELECT projects.*, users.name, users.role, users.city, users.profile_pic FROM projects 
+          JOIN users ON projects.user_id = users.id 
+          WHERE users.id = 8`
+  }
+  return db.query(query)
+  .then(result => result.rows)
+}
   
   return {
     getUserByEmail,
     getAllUsers,
     saveUser,
+    getProject,
     getAllAds,
     getAllCollaborators,
     addToCollaborators,
