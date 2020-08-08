@@ -17,5 +17,10 @@ module.exports = ({getUserByEmail}) => {
     })
     .catch(err => res.status(err.status).send(err.message))
   });
+
+  router.post("/logout", (req, res) => {
+    req.session["userId"] = null;
+    res.redirect("/signin")
+  })
   return router;
 };
