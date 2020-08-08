@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 import  { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -40,9 +41,13 @@ const marks = [
 export default function SignIn(){
   const [info,setInfo]=useState({name:"",birthday:"",email:"",password:"",city:"",postalCode:"",role:""})
   const classes = useStyles();
+  const submitForm = () => {
+    axios.post("/users", info).then(console.log("test"))
+  }
+  
   return (
     
-    <Form className="signup-form"onSubmit={(event)=> {event.preventDefault();console.log(info)}} autoComplete="off">
+    <Form className="signup-form"onSubmit={(event)=> {event.preventDefault();console.log(info); submitForm()}} autoComplete="off">
       <h2>Sign Up</h2>
 
     <Form.Group controlId="user_name">

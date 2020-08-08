@@ -5,15 +5,30 @@ const router = express.Router();
 
 module.exports = ({getAllAds, getAllCollaborators, addToCollaborators, getUser }) => {
   router.get("/", (req, res) => {
-    getAllAds()
-    .then(ads => res.send(ads))
+    const userId = req.session.userId;
+    if(userId) {
+      getAllAds()
+    .then(ads => {
+      res.status(200)
+      res.send(ads)
+    }) 
+    } else {
+      res.status(403)
+    }
   })
   router.get("/:id/collaborators", (req,res) => {
-    getAllCollaborators(req.params.id)
+    const userId = req.session.userId;
+    if(userId) {
+      getAllCollaborators(req.params.id)
     .then(collaborators => {
-      console.log("String",collaborators)
-      res.send(collaborators)})
+      res.status(200)
+      res.send(collaborators)
+    })
+    } else {
+      res.status(403)
+    }
   })
+  
   router.post("/:id/collaborators", (req,res) => {
     addToCollaborators(req.params.id,1)
     .then(collab => {
@@ -25,6 +40,5 @@ module.exports = ({getAllAds, getAllCollaborators, addToCollaborators, getUser }
     })
   })
 return router;
-}
+};
 
-;

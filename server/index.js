@@ -6,7 +6,7 @@ const socketio = require('socket.io');
 const cors = require('cors');
 const bodyParser = require ('body-parser')
 const path = require('path');
-
+const cookieSession = require('cookie-session')
 const morgan = require('morgan')
 
 
@@ -29,6 +29,10 @@ const dbHelpers = require('./helpers/dbHelpers')(db)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'))
+app.use(cookieSession({
+  name: 'session',
+  keys: ['authorized', '']
+}))
 
 io.on('connect', (socket) => {
   socket.on('join', ({ name, room }, callback) => {
@@ -68,16 +72,12 @@ server.listen(process.env.PORT || 5002, () => console.log(`Server has started.`)
 const signRoute = require("./routes/sign");
 const usersRoute = require("./routes/users");
 const dashboardRoute = require("./routes/dashboard");
-
-
-app.use("/sign",signRoute(dbHelpers));
-app.use("/users",usersRoute(dbHelpers))
-app.use("/dashboard", dashboardRoute(dbHelpers))
 const adsRoute = require("./routes/ads");
 const collaboratorsRoute = require("./routes/collaborators");
 
 app.use("/sign",signRoute(dbHelpers));
-app.use("/users",usersRoute(dbHelpers));
+app.use("/users",usersRoute(dbHelpers))
+app.use("/dashboard", dashboardRoute(dbHelpers))
 app.use("/ads",adsRoute(dbHelpers));
 app.use("/collaborators",collaboratorsRoute(dbHelpers));
 
