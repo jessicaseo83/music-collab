@@ -12,6 +12,9 @@ module.exports = ({getUserByEmail}) => {
       res.status(200)
       res.send({ name: user.name, pic: user.profile_pic})
     })
+    .then(user => {
+      res.redirect("/dashboard")
+    })
     .catch(err => res.status(err.status).send(err.message))
   });
   return router;
