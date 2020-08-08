@@ -7,6 +7,8 @@ module.exports = ({getAllCollaborators}) => {
     getAllCollaborators()
     .then(collaborators => res.send(collaborators))
   })
+
+
 return router;
 }
 

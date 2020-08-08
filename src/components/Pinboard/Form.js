@@ -25,14 +25,13 @@ export default function AdInd ({ad}) {
   const [filteredAds,setFilteredAds] = useState([]);
 
   //<---------------HELPER FUNCTIONS---------------->
+ 
+
   const onClick = () => {
-    if (count > 0){
-      setCount(count - 1)
-    }
     axios.post(`/ads/${ad.id}/collaborators`)
       .then(res => {
-        setCollaborators(res.data)
-        console.log(setCollaborators)
+        setCollaborators(collabs => [...collabs, res.data])
+        console.log("What are the setCollaborators=>", res.data)
       })
       .catch((err) => {
         console.log("You got this right, but there's no user authentification yet.")
@@ -67,7 +66,7 @@ export default function AdInd ({ad}) {
   // }, [location, role, genre])
 
   const collabImg = collaborators.map(c => <Image className="avatars" variant="top" src={c.profile_pic} roundedCircle />)
-  console.log("Collab =>",collabImg.Objectkeys)
+  console.log("Collab =>",collabImg)
  
 return (   
   <>
@@ -106,9 +105,9 @@ return (
     <Card.Text>Positions available: {ad.positions_available}</Card.Text>
     <div className="avatars">{collabImg}</div>
    <br></br>
-  <form method="post">
-  <Button type="submit" onClick={onClick} variant="primary" disabled={count===0}>Join project</Button>
-  </form>
+  
+  <Button type="submit" onClick={onClick} variant="primary" disabled={collaborators.length >= ad.positions_available}>Join project</Button>
+
   </Card.Body>
 </Card>
 </CardColumns>

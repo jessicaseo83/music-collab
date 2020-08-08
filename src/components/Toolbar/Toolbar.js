@@ -30,15 +30,21 @@ const Toolbar = props => (
     </Navbar>
   </header>
   <footer>
-    <nav>
-      <div></div>
-      <div></div>
-      <div>
-        <ul>
-          <li><h6>I am a footer</h6></li>
-        </ul>
+      <div className="fixed-bottom">
+        <div className="container">
+          <div className="row">
+            {/*Column 1 */}
+            <div className="col-md-3 col-sm-6">
+              <h4><a href="https://github.com/odgerey/music-collab/">Github</a></h4>
+              <ul className="list-unstyled">
+              </ul>
+            </div>
+            {/* Footer Bottom */}
+            <div className="footer-bottom"></div>
+            <p className="text-xs-center">&copy;{new Date().getFullYear()} Audrey Medaino-Tardif, Adel Rashed, Jessica Seo</p>
+          </div>
+        </div>
       </div>
-    </nav>
   </footer>
   </>
 )

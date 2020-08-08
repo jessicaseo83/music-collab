@@ -10064,7 +10064,7 @@ react-dev-utils@^10.2.1:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dom@^16.13.1, react-dom@^16.8.6:
+react-dom@^16.13.1, react-dom@^16.8.4, react-dom@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
@@ -10113,6 +10113,15 @@ react-event-listener@^0.6.2:
     "@babel/runtime" "^7.2.0"
     prop-types "^15.6.0"
     warning "^4.0.1"
+
+react-flip-page@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/react-flip-page/-/react-flip-page-1.6.2.tgz#afbd23523a7640d10f3a237b1cb7ac994d49989c"
+  integrity sha512-VfL84aPktTXLXnZHRj0WXtzHimUIygJ5QwRtZPX97Eo6iq8OC3QM/1GAfjcs0LEKQCftt3zZJVmIECifvFQ1YA==
+  dependencies:
+    prop-types "^15.6.2"
+    react "^16.8.4"
+    react-dom "^16.8.4"
 
 react-geocode@^0.2.1:
   version "0.2.1"
@@ -10315,7 +10324,7 @@ react-transition-group@^4.4.0, react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.13.1, react@^16.8.6:
+react@^16.13.1, react@^16.8.4, react@^16.8.6:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
