@@ -9,12 +9,12 @@ export default function Project (props){
     <div>
       <h3>My Project</h3>
       {projects.map(project => (
-        <p>
+        <div>
           <img className="project_pic" src={project.pic}/>
           <h4>{project.title}</h4>
           <p>{project.description}</p>
           <a href={project.url}>Check here!</a>
-        </p>
+        </div>
       ))
       }
     </div>
