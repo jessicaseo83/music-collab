@@ -14,7 +14,7 @@ import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop"
 
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 class App extends Component {
   state= {
@@ -39,16 +39,39 @@ class App extends Component {
     sideDrawer = <SideDrawer/>;
     backdrop = <Backdrop click={this.backdropClickHandler}/>;
   }
+  const user =false;
   return (
     <>
     <Router>
-      <Route path="/chatbox/join" exact component={Join} />
-      <Route path="/chat" component={Chat} />
-      <Route path="/dashboard" component={Dashboard}/>
-      <Route path="/pinboard" component={Pinboard}/>
-      <Route path="/search" component={Search}/>
-      <Route path="/signin" component={SignIn}/>
-      <Route path="/signup" component={SignUp}/>
+
+      <Route path="/chatbox/join">
+      {user?<Join/>:<Redirect to="/signin"/>}
+      </Route>
+
+      <Route path="/chat">
+      {user?<Chat/>:<Redirect to="/signin"/>}
+      </Route> 
+
+
+      <Route path="/dashboard">
+      {user?<Dashboard/>:<Redirect to="/signin"/>}
+      </Route> 
+
+      <Route path="/pinboard">
+      {user?<Pinboard/>:<Redirect to="/signin"/>}
+      </Route>
+
+      <Route path="/search">
+      {user?<Search/>:<Redirect to="/signin"/>}
+      </Route>
+
+      <Route path="/signin">
+      {user?<Redirect to="/search"/>:<SignIn/>}
+      </Route>
+
+      <Route path="/signup">
+      {user?<Redirect to="/search"/>:<SignUp/>}
+      </Route>
 
     </Router>
     <div style={{height: "100%"}}>
