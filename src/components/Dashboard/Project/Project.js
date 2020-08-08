@@ -14,7 +14,7 @@ export default function Project (props){
           <img className="project_pic" src={project.pic}/>
           <h4>{project.title}</h4>
           <p>{project.description}</p>
-          <a href={project.url}>Check here!</a>
+          <a className="url" href={project.url}>Check here!</a>
         </div>
       ))
       }

@@ -9,6 +9,7 @@ import './Dashboard.css'
 import { Container } from 'react-bootstrap'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button'
 
 const Dashboard = (props) => {
   const [project, setProject] = useState([])
@@ -22,10 +23,6 @@ const Dashboard = (props) => {
        setProject(res.data)
        setProfile(res.data[0])
      })
-    //  axios.post('/:id/dashboard')
-    //  .then(res => {
-    //     setMyProject(res.data)
-    //  })
   },[])
 
   
@@ -33,16 +30,22 @@ const Dashboard = (props) => {
     
     <Container className="main">
       <Row>
-        <Col sm={4} className="profile"><Profile profile={profile}/></Col>
-        <Col sm={8} className="project">
+        <Col l={4} className="profile"><Profile profile={profile}/></Col>
+        <Col l={8} className="project">
           <Project project={project}/>
         </Col>
       </Row>
       <Row>
-        <Col sm={4}>Edit</Col>
-        <Col sm={8}><button variant="primary" type="submit" onClick={(event) => setShow(!show)}>+ Add project</button>
-          { show ? <MyProjects/> : null}</Col>
-
+        <Col l={4}></Col>
+        <Col l={8}><Button variant="primary" type="submit" onClick={(event) => setShow(!show)}>+ Add project</Button>
+        </Col>
+      </Row>
+     <br/>
+     <br/>
+      <Row>
+        <Col>
+      { show ? <MyProjects/> : null}
+      </Col>
       </Row>
     </Container>
     
