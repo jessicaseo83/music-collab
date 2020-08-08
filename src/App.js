@@ -1,7 +1,7 @@
 
 import React, { Component, useState} from 'react';
 import Cookies from "js-cookie"
-
+import axios from "axios"
 import Chat from './components/Chatbox/Chat/Chat';
 import Join from './components/Chatbox/Join/Join';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -35,14 +35,21 @@ class App extends Component {
   };
 
   loggedIn =()=>{
-      Cookies.set('user',true)
+      Cookies.set('user',true);
+      this.setState({loggedIn: true})
   };
     
     
   
 
   loggedOut =()=>{
-    Cookies.remove('user')
+    axios.post('/sign/out')
+      .then(()=>{
+        Cookies.remove('user')
+        this.setState({loggedIn: false})
+      })
+
+    
     
   };
 
@@ -91,13 +98,13 @@ class App extends Component {
       </Route>
 
       <Route path="/signup">
-        {this.state.loggedIn?  <Search/>:<SignUp loggedIn={this.loggedIn}/>}
+        {this.state.loggedIn?  <Search/>:<SignUp loggedIn={this.loggedIn} />}
         
       </Route>
 
     </Router>
     <div style={{height: "100%"}}>
-      <Toolbar drawerClickHandler={this.drawerToggleClickHandler} loggedIn ={this.state.loggedIn}/>
+      <Toolbar drawerClickHandler={this.drawerToggleClickHandler} loggedIn ={this.state.loggedIn} loggedOut={this.loggedOut}/>
       {sideDrawer}
       {backdrop}
     </div>

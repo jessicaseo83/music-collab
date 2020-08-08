@@ -23,6 +23,11 @@ const Toolbar = props => (
               <li><a href="/pinboard">Pinboard</a></li>
               <li><a href="/chatbox/join">Chatbox</a></li>
               <li><a href="/dashboard">Dashboard</a></li>
+              <li><a href="/sign/out" onClick={
+                (event) => {event.preventDefault();
+                props.loggedOut()
+              }
+              }>Sign Out</a> </li>
 
             </ul>
 
@@ -35,14 +40,7 @@ const Toolbar = props => (
 
 
           )}
-          {/* <ul>
-            <li><a href="/search">Collaborate</a></li>
-            <li><a href="/pinboard">Pinboard</a></li>
-            <li><a href="/chatbox/join">Chatbox</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/signin">Sign In</a></li>
-            <li><a href="/signup">Create Account</a></li>
-          </ul> */}
+
         </div>
 
       
