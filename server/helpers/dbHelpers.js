@@ -31,7 +31,7 @@ module.exports= function(db){
 
   const getAllAds = function () {
     const query= {
-      text:`SELECT DISTINCT ads.*, users.name FROM ads LEFT JOIN users ON ads.user_id = users.id
+      text:`SELECT DISTINCT ads.*, users.name, users.profile_pic FROM ads LEFT JOIN users ON ads.user_id = users.id
       LEFT JOIN collaborators ON ads.id = collaborators.ad_id ORDER BY ads.id`
     }
     return db.query(query)
