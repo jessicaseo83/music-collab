@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import Geocode from "react-geocode";
+import Button from 'react-bootstrap/Button'
 
 
 const libraries = ["places"];
@@ -89,7 +90,7 @@ export default function Map(props) {
             <img src={selected.profile_pic} alt="pic" width="100" height="100" />
             <p>Name: {selected.name}</p>
             <p>Role: {selected.role}</p>
-            <button>See Profile</button>
+            <Button href="http://localhost:3000/dashboard">See Profile</Button>
           </div>
         </InfoWindow>
         
