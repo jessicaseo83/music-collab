@@ -17,5 +17,11 @@ module.exports = ({getUserByEmail}) => {
     })
     .catch(err => res.status(err.status).send(err.message))
   });
+
+  router.post("/out",(req,res) => {
+
+    req.session=null
+    res.status(200).end()
+  })
   return router;
 };

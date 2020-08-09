@@ -13,7 +13,7 @@ module.exports = ({getAllAds, getAllCollaborators, addToCollaborators, getUser }
       res.send(ads)
     }) 
     } else {
-      res.status(403)
+      res.status(403).end()
     }
   })
   router.get("/:id/collaborators", (req,res) => {
@@ -25,7 +25,7 @@ module.exports = ({getAllAds, getAllCollaborators, addToCollaborators, getUser }
       res.send(collaborators)
     })
     } else {
-      res.status(403)
+      res.status(403).end()
     }
   })
   

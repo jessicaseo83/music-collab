@@ -14,7 +14,7 @@ module.exports = ({getAllUsers,saveUser}) => {
         res.send(users)
       })
     } else {
-      res.status(403)
+      res.status(403).end()
     }
   });
 
@@ -31,7 +31,7 @@ module.exports = ({getAllUsers,saveUser}) => {
     })
     .catch(err => {
       console.log(err)
-      res.status(500)
+      res.status(500).end()
     })
   })
 return router;

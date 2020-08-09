@@ -14,6 +14,8 @@ module.exports = ({getProject, addToProjects}) => {
         res.send(proj)
     
       })
+    } else {
+      res.status(403).end()
     }
   })
   

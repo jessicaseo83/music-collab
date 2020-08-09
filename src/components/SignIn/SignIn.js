@@ -5,10 +5,11 @@ import Button from 'react-bootstrap/Button'
 import axios from 'axios'
 import "./SignIn.css"
 
-export default function SignIn(){
+export default function SignIn(props){
   const [info,setInfo]=useState({email:"",password:""})
   const submitForm = () => {
-    axios.post("/sign/in", info).then(console.log("test"))
+    axios.post("/sign/in", info)
+    .then(props.loggedIn)
   }
 
   // function Copyright() {
