@@ -4,18 +4,26 @@ const express = require('express');
 const router = express.Router();
 
 
-module.exports = ({getProject, addToProjects}) => {
+module.exports = ({getProject, addToProjects,getUserById}) => {
   router.get("/", (req, res) => {
     const userId = req.session.userId;
     if(userId){
+      let data ={};
       getProject(userId)
-      .then(proj => {
+      .then(proj => data.projects = proj)
+      .then(()=> getUserById(userId))
+      .then(user => data.user=user)
+      .then(()=> {
         res.status(200)
-        res.send(proj)
-    
+        console.log(data)
+        res.send(data)
+
       })
     } else {
+      
       res.status(403).end()
+
+       
     }
   })
   

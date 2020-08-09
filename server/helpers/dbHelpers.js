@@ -74,13 +74,22 @@ module.exports= function(db){
 
  const getProject = function (user_id) {
   const query = {
-    text: `SELECT projects.*, users.name, users.role, users.city, users.profile_pic FROM projects 
-          JOIN users ON projects.user_id = users.id 
+    text: `SELECT projects.*
+          From projects WHERE user_id = $1 `,
+          values:[user_id]
+  }
+  return db.query(query)
+  .then(result => {return result.rows})
+}
+
+const getUserById = function (user_id) {
+  const query = {
+    text: `SELECT users.name, users.role, users.city, users.profile_pic FROM  users 
           WHERE users.id = $1 `,
           values:[user_id]
   }
   return db.query(query)
-  .then(result => result.rows)
+  .then(result => {return result.rows[0]})
 }
 
 const addToProjects = function (info, user_id) {
@@ -102,6 +111,7 @@ const addToProjects = function (info, user_id) {
     getAllCollaborators,
     addToCollaborators,
     getUser,
-    addToProjects
+    addToProjects,
+    getUserById
   }
 }

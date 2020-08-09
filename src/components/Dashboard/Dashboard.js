@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import Profile from './profile/Profile'
-import Project from './project/Project'
-import MyProjects from './project/MyProjects'
+import Profile from './Profile/Profile'
+import Project from './Project/Project'
+import MyProjects from './Project/MyProjects'
 
 
 import './Dashboard.css'
