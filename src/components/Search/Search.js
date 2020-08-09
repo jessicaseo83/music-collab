@@ -74,9 +74,9 @@ return (
 
 <form onChange={(event) => setView(event.target.value)}>
 
-<input type="radio" id ="map" name="view" value="map" ></input>
+<input className="map-btn" type="radio" id ="map" name="view" value="map" ></input>
 <label for="map">Map</label>
-<input type="radio" id ="list" name="view" value="list"></input>
+<input className="list-btn" type="radio" id ="list" name="view" value="list"></input>
 <label for="list">List</label>
 </form>
 
