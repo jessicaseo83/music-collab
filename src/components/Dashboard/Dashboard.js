@@ -20,8 +20,8 @@ const Dashboard = (props) => {
   useEffect(()=>{
     axios.get('/dashboard')
      .then(res => {
-       setProject(res.data)
-       setProfile(res.data[0])
+       setProject(res.data.projects)
+       setProfile(res.data.user)
      })
   },[])
 
