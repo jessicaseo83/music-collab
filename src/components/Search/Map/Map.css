@@ -1,0 +1,15 @@
+.gm-style-iw {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px; 
+  min-height: 150px;
+}
+
+.user_pic {
+  border-radius: 50%;
+}
+
+.window_info{
+  justify-content: center;
+}
