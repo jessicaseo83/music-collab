@@ -10,6 +10,7 @@
   column-count:4;
 }
 .images{
+  margin-top: 1rem;
   height:200px;
   width: 200px;
   overflow:hidden;
