@@ -45,7 +45,7 @@ const Search = (props) => {
   },[city,role])
 
 
-const userList = filteredUsers.map (user => <UserInd user={user}/>)
+const userList = filteredUsers.map (user => <UserInd key ={user.id} user={user}/>)
 
 return (
 

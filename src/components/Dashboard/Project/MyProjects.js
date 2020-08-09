@@ -3,13 +3,15 @@ import  { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios'
+import { propTypes } from "react-bootstrap/esm/Image";
 
 
 
-export default function MyProjects(){
+export default function MyProjects(props){
   const [info, setInfo] = useState({title:"", description:"",url:"", pic:""})
   const submitForm = () => {
-    axios.post("/dashboard", info).then(console.log("test"))
+    axios.post("/dashboard", info)
+    .then(res => props.addProject(res.data))
   }
   
   return (

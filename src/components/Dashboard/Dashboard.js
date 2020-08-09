@@ -3,7 +3,7 @@ import axios from 'axios';
 import Profile from './Profile/Profile'
 import Project from './Project/Project'
 import MyProjects from './Project/MyProjects'
-
+import {useParams} from 'react-router-dom'
 
 import './Dashboard.css'
 import { Container } from 'react-bootstrap'
@@ -12,18 +12,26 @@ import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 
 const Dashboard = (props) => {
-  const [project, setProject] = useState([])
-  const [profile, setProfile] = useState([])
+  const [project, setProject] = useState(props.projects || [])
+  const [profile, setProfile] = useState(props.user || [])
   // const [myProject, setMyProject] = useState([])
   const [show, setShow] = useState(false)
-
+  const id = useParams()["id"];
+  const url = id? `/dashboard/${id}`:"/dashboard";
+ 
+  
   useEffect(()=>{
-    axios.get('/dashboard')
+    
+    axios.get(url)
      .then(res => {
        setProject(res.data.projects)
        setProfile(res.data.user)
      })
   },[])
+
+  const addProject = function(project) {
+      setProject((prev) => [...prev,project])
+  }
 
   
   return (
@@ -44,7 +52,7 @@ const Dashboard = (props) => {
      <br/>
       <Row>
         <Col>
-      { show ? <MyProjects/> : null}
+      { show ? <MyProjects addProject={addProject}/> : null}
       </Col>
       </Row>
     </Container>

@@ -79,7 +79,7 @@ class App extends Component {
       </Route> 
 
 
-      <Route path="/dashboard">
+      <Route path={["/dashboard/:id","/dashboard"]}>
         {this.state.loggedIn? <Dashboard/>:<Redirect to ="/signin" />}
         
       </Route> 
