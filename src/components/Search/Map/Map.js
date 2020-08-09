@@ -63,7 +63,7 @@ export default function Map(props) {
   }
 
   const users = props.users;
-  
+  const profileUrl = `/dashboard/${selected.id}`
 
   return (
   <div className='map'>
@@ -108,7 +108,7 @@ export default function Map(props) {
               <h5>{selected.name}</h5>
               <p>{selected.role}</p>
             </div>
-            <Button variant="info" size="sm">See Profile</Button>
+            <Button href={profileUrl} variant="info" size="sm">See Profile</Button>
           </div>
         </InfoWindow>
       
