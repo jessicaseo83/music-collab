@@ -2,7 +2,7 @@ import React from 'react';
 import {useState,useEffect} from 'react';
 import axios from 'axios'
 import Map from "./Map/Map.js"
-
+import Button from 'react-bootstrap/Button'
 import "./Search.css"
 import UserInd from "./list/User.js"
 
@@ -49,8 +49,10 @@ const userList = filteredUsers.map (user => <UserInd user={user}/>)
 
 return (
 
-<>
-
+<section className="main">
+  
+  <section className="sidebar"/>
+  <section className="map_list">
   <select id="role" className="search_filter" onChange={(event)=>setRole(event.target.value)} value ={role}>
       <option value ="" selected  > Select a role</option>
       <option>Musician</option>
@@ -66,7 +68,7 @@ return (
       <option value ="Vancouver">Vancouver</option>
       <option value ="Ottawa"> Ottawa</option>
 </select>
-<button type="button" onClick={clearFilters}> Clear All Filters</button>
+<Button className="filter-btn" type="button" onClick={clearFilters}> Clear All Filters</Button>
 
 
 
@@ -83,8 +85,8 @@ return (
   {view ==="map" &&<Map users={filteredUsers} city={city} />}
   {view ==="list" && userList}
 
-
-</>
+  </section>
+</section>
 )
 }
 
