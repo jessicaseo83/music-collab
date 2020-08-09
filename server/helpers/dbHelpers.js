@@ -58,6 +58,7 @@ module.exports= function(db){
   }
 
 
+
   const saveUser = function(info,location) {
     const query = {
       text:`INSERT INTO users (name, password, email, date_of_birth, city, postal_code, lat, lng, role, profile_pic)
@@ -71,14 +72,34 @@ module.exports= function(db){
 
   }
 
- const getProject = function () {
+ const getProject = function (user_id) {
   const query = {
-    text: `SELECT projects.*, users.name, users.role, users.city, users.profile_pic FROM projects 
-          JOIN users ON projects.user_id = users.id 
-          WHERE users.id = 8`
+    text: `SELECT projects.*
+          From projects WHERE user_id = $1 `,
+          values:[user_id]
   }
   return db.query(query)
-  .then(result => result.rows)
+  .then(result => {return result.rows})
+}
+
+const getUserById = function (user_id) {
+  const query = {
+    text: `SELECT users.name, users.role, users.city, users.profile_pic FROM  users 
+          WHERE users.id = $1 `,
+          values:[user_id]
+  }
+  return db.query(query)
+  .then(result => {return result.rows[0]})
+}
+
+const addToProjects = function (info, user_id) {
+  const query = {
+    text: `INSERT INTO projects (title, description, url, pic, user_id)
+    VALUES ($1,$2,$3,$4,$5) Returning *`,
+    values:[info.title, info.description, info.url, info.pic, user_id]
+  }
+  return db.query(query)
+  .then(res => res.rows[0])
 }
   
   return {
@@ -89,6 +110,8 @@ module.exports= function(db){
     getAllAds,
     getAllCollaborators,
     addToCollaborators,
-    getUser
+    getUser,
+    addToProjects,
+    getUserById
   }
 }

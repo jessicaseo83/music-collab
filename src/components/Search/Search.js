@@ -55,7 +55,15 @@ const Search = (props) => {
   },[city,role])
 
 
+<<<<<<< HEAD
 const userList = filteredUsers.map (user => <UserInd key={user.id} user={user}/>)
+=======
+const userList = filteredUsers.map (user => <UserInd key ={user.id} user={user}/>)
+
+return (
+
+<>
+>>>>>>> master
 
 // dropdown button handlers
 const cityChange = (event) => {

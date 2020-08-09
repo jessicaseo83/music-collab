@@ -25,6 +25,7 @@
     "material-ui": "^0.20.2",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
+    "package.json": "^2.0.1",
     "pg": "^8.3.0",
     "pg-native": "^3.0.0",
     "prop-types": "^15.7.2",

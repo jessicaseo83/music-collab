@@ -30,7 +30,9 @@ module.exports = ({getAllAds, getAllCollaborators, addToCollaborators, getUser }
   })
   
   router.post("/:id/collaborators", (req,res) => {
-    addToCollaborators(req.params.id,1)
+    const userId = req.session.userId;
+    if (userId) {
+    addToCollaborators(req.params.id, userId)
     .then(collab => {
       return getUser(collab.user_id)
     })
@@ -38,6 +40,9 @@ module.exports = ({getAllAds, getAllCollaborators, addToCollaborators, getUser }
       console.log("These are my collaborators=>", collaborators.name)
       res.send(collaborators)
     })
+  } else {
+    res.status(403)
+  }
   })
 return router;
 };
