@@ -1,0 +1,6 @@
+.pic{
+  height:100px;
+  width: 100px;
+  overflow:hidden;
+  border-radius: 50%;
+}
