@@ -108,7 +108,7 @@ return (
     </Select>
     
   </FormControl>
-  <Button className="filter-btn" type="button" onClick={clearFilters}> Clear All Filters</Button>
+  <Button className="filter-btn" type="button" onClick={clearFilters} size="sm"> Clear All Filters</Button>
 </section>
 
 <form onChange={(event) => setView(event.target.value)}>
