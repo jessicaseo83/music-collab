@@ -95,6 +95,7 @@ const Dashboard = (props) => {
       <Row>
         <Col>
       { show ? <MyProjects addProject={addProject}/> : null}
+      
       </Col>
       </Row>
     </Container>
