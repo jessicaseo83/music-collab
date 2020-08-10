@@ -8,6 +8,7 @@
 }
 
 .user_pic {
+  object-fit: cover;
   border-radius: 50%;
 }
 
