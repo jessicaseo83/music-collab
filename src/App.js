@@ -17,12 +17,12 @@ import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop"
 
 
-import { BrowserRouter as Router, Route, Redirect, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 
 class App extends Component {
   state= {
     sideDrawerOpen: false,
-    loggedIn:Cookies.get('user')
+    loggedIn:false
 
     }
   
@@ -37,7 +37,7 @@ class App extends Component {
   };
 
   loggedIn =()=>{
-      Cookies.set('user',true);
+      //Cookies.set('user',true);
       this.setState({loggedIn: true})
   };
     
@@ -95,21 +95,21 @@ class App extends Component {
       </Route>
 
       <Route path="/signin">
-        {this.state.loggedIn?  <Search/>:<SignIn loggedIn={this.loggedIn} />}
+        {this.state.loggedIn?  <Redirect to ="/search" />:<SignIn loggedIn={this.loggedIn} />}
         
       </Route>
 
       <Route path="/signup">
-        {this.state.loggedIn?  <Search/>:<SignUp loggedIn={this.loggedIn} />}
+        {this.state.loggedIn? <Redirect to ="/search" />:<SignUp loggedIn={this.loggedIn} />}
         
       </Route>
 
-    </Router>
     <div style={{height: "100%"}}>
       <Toolbar drawerClickHandler={this.drawerToggleClickHandler} loggedIn ={this.state.loggedIn} loggedOut={this.loggedOut}/>
       {sideDrawer}
       {backdrop}
     </div>
+    </Router>
     </>
   );
 }

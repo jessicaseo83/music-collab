@@ -6,6 +6,7 @@ import Image from 'react-bootstrap/Image'
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
 import Dashboard from "../../Dashboard/Dashboard"
+import { Link } from 'react-router-dom';
 
 export default function UserInd ({user}) {
 
@@ -23,7 +24,9 @@ return (
     <Card.Text>{user.city}</Card.Text>
     <Card.Text>{user.role}</Card.Text>
     <Card.Text>{user.email}</Card.Text>
-<Button href={`/dashboard/${user.id}`} variant="primary" >See profile</Button>
+    <Link to={`/dashboard/${user.id}`}>
+        <Button variant="primary" >See profile</Button>
+    </Link>
   </Card.Body>
 </Card>
 </CardColumns>

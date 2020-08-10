@@ -3,6 +3,7 @@ import logo from '../logo.png';
 import Navbar from 'react-bootstrap/Navbar';
 import "./Toolbar.css"
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,15 +20,16 @@ const Toolbar = props => (
         <div className="nav-pages">
           {props.loggedIn?(
             <ul>
-              <li><a href="/search">Collaborate</a></li>
-              <li><a href="/pinboard">Pinboard</a></li>
-              <li><a href="/chatbox/join">Chatbox</a></li>
-              <li><a href="/dashboard">Dashboard</a></li>
-              <li><a href="/sign/out" onClick={
+              
+              <li><Link to ="/search">Collaborate</Link></li>
+              <li><Link to="/pinboard">Pinboard</Link></li>
+              <li><Link to="/chatbox/join">Chatbox</Link></li>
+              <li><Link to="/dashboard">Dashboard</Link></li>
+              <li><Link to="/sign/out" onClick={
                 (event) => {event.preventDefault();
                 props.loggedOut()
               }
-              }>Sign Out</a> </li>
+              }>Sign Out</Link> </li>
 
             </ul>
 
