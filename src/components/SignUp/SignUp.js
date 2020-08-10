@@ -17,8 +17,6 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import img from "./photo.png";
-import band from "./band.png";
-import soundpro from "./soundpro.png";
 import studio from "./INFO.png";
 
 
