@@ -1,12 +1,19 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, useLoadScript, Marker, InfoWindow, InfoWindowOptions } from '@react-google-maps/api';
 import Geocode from "react-geocode";
-
+import MapStyles from "./MapStyles";
+import Button from 'react-bootstrap/Button'
+import './Map.css'
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  width: '100vw',
-  height: '100vh'
+  width: '75vw',
+  height: '75vh'
+};
+const options = {
+  styles: MapStyles,
+  disableDefaultUI: true,
+  zoomControl: true,
 };
 
 
@@ -56,14 +63,15 @@ export default function Map(props) {
   }
 
   const users = props.users;
-  
+  const profileUrl = `/dashboard/${selected.id}`
 
   return (
   <div className='map'>
  
     <GoogleMap 
       mapContainerStyle={mapContainerStyle}
-      zoom={13}
+      zoom={11}
+      options={options}
       center={currentPosition}
      
     >
@@ -74,25 +82,36 @@ export default function Map(props) {
           position={{lat: user.lat, lng: user.lng}}
           onClick={() => onSelect(user)}
           onLoad={onMapLoad}
+
+          icon={{
+            url: `/music.svg`,
+            origin: new window.google.maps.Point(0, 0),
+            anchor: new window.google.maps.Point(15, 15),
+            scaledSize: new window.google.maps.Size(30, 30),
+          }}
         />
         ))
       }
       {
         selected.lat && (
-        
+      
           <InfoWindow
           position={{ lat: selected.lat, lng: selected.lng }}
           clickable={true}
           onCloseClick={() => setSelected({})}
-        >
-          <div>
-            <img src={selected.profile_pic} alt="pic" width="100" height="100" />
-            <p>Name: {selected.name}</p>
-            <p>Role: {selected.role}</p>
-            <button>See Profile</button>
+          
+
+        > 
+          <div className="window_info">
+            <div className="user_info">
+              <img className="user_pic" src={selected.profile_pic} alt="pic" width="80" height="80" />
+              <h5>{selected.name}</h5>
+              <p>{selected.role}</p>
+            </div>
+            <Button href={profileUrl} variant="info" size="sm">See Profile</Button>
           </div>
         </InfoWindow>
-        
+      
         )}
     </GoogleMap>
     

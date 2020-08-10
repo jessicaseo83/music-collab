@@ -1,7 +1,26 @@
-/* h1 {
-  margin-top: 30rem;
-} */
 
-.search_filter {
-margin-top: 15rem;
+.main{
+  display: flex;
+  margin-top: 10rem;
+}
+
+
+.sidebar{
+  flex: 1 1 15%
+}
+
+.map_list{
+  flex: 1 1 85%
+}
+
+.filter-btn {
+  margin: 1.5em;
+}
+
+.map-btn{
+  margin: 0.3rem;
+}
+
+.list-btn{
+  margin: 0.3rem;
 }

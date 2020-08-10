@@ -95,7 +95,7 @@ class App extends Component {
       </Route>
 
       <Route path="/signin">
-        {this.state.loggedIn?  <Redirect to ="/search" />:<SignIn loggedIn={this.loggedIn} />}
+        {this.state.loggedIn?  <Redirect to ="/dashboard" />:<SignIn loggedIn={this.loggedIn} />}
         
       </Route>
 
