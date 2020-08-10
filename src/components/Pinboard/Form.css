@@ -20,6 +20,7 @@
   width: 200px;
   overflow:hidden;
   border-radius: 50%;
+  object-fit: cover;
 }
 .card {
   display:inline-block;
@@ -29,10 +30,10 @@
 .avatars {
   display: flex;
   direction: row;
-  vertical-align: middle;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .avatars:hover,
