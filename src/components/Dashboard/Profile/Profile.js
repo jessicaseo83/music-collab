@@ -23,7 +23,7 @@ export default function Profile (props){
       <Card.Text>
         {user.city}
       </Card.Text>
-      <Button variant="primary">Edit</Button>
+      <Button variant="primary" hidden={props.owner} disabled={props.owner}>Edit</Button>
     </Card.Body>
   </Card>
   <br></br>

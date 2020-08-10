@@ -69,7 +69,7 @@ const Dashboard = (props) => {
        setProject(res.data.projects)
        setProfile(res.data.user)
      })
-  },[])
+  },[url])
 
   const addProject = function(project) {
       setProject((prev) => [...prev,project])
@@ -80,7 +80,7 @@ const Dashboard = (props) => {
     <>
     <Container className="main">
       <Row>
-        <Col l={4} className="profile"><Profile profile={profile}/></Col>
+        <Col l={4} className="profile"><Profile profile={profile} owner={id ? true:false}/></Col>
         <Col l={8} className="project">
           <Project project={project}/>
         </Col>
