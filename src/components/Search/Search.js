@@ -74,7 +74,6 @@ const classes = useStyles();
 return (
 
 <section className="main">
-  
   <section className="sidebar"/>
   <section className="map_list">
   
@@ -128,6 +127,7 @@ return (
 
   </section>
 </section>
+
 )
 }
 

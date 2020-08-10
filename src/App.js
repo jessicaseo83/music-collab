@@ -17,7 +17,7 @@ import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop"
 
 
-import { BrowserRouter as Router, Route, Redirect, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 
 class App extends Component {
   state= {
@@ -99,17 +99,17 @@ class App extends Component {
         
       </Route>
 
-      <Route path="/signup">
-        {this.state.loggedIn?  <Search/>:<SignUp loggedIn={this.loggedIn} />}
+      <Route path="/">
+        {this.state.loggedIn? <Redirect to ="/search" />:<SignUp loggedIn={this.loggedIn} />}
         
       </Route>
 
-    </Router>
     <div style={{height: "100%"}}>
       <Toolbar drawerClickHandler={this.drawerToggleClickHandler} loggedIn ={this.state.loggedIn} loggedOut={this.loggedOut}/>
       {sideDrawer}
       {backdrop}
     </div>
+    </Router>
     </>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import  { useState } from "react";
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import "./SignUp.css"
 
@@ -15,8 +16,10 @@ import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Icon from '@material-ui/core/Icon'
-import img from "./profile.png"
+import img from "./photo.png";
+import band from "./band.png";
+import soundpro from "./soundpro.png";
+import studio from "./INFO.png";
 
 
 
@@ -25,7 +28,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Music Lab
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -36,16 +39,9 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    height: '100px',
   },
-  image: {
-    backgroundImage: '{img}',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
+
   paper: {
     margin: theme.spacing(8, 4),
     display: 'flex',
@@ -88,22 +84,43 @@ const marks = [
   }
 ];
 
-export default function SignIn(){
+export default function SignUp(props){
   const [info,setInfo]=useState({name:"",birthday:"",email:"",password:"",city:"", profile_pic:"",postalCode:"",role:""})
   const classes = useStyles();
+
   const submitForm = () => {
-    axios.post("/users", info).then(console.log("test"))
+    axios.post("/users", info)
+    .then(props.loggedIn)
   }
   
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <Grid item xs={false} sm={7} md={4} className={classes.image} />
+      <Grid item xs={false} sm={7} md={4} className="Welcome-index">
+        <Row>
+        <img className="image" src={img}/>
+        </Row>
+        <Row>
+      <span>
+          <h6 className="slogan"><i>A site made by artists for artists.</i></h6></span>
+          <img className="studio" src={studio}/>
+          <div className="steps">
+            <h4 className="1"><i>Create a profile in 3 <b>easy</b> steps:</i></h4>
+            <h5>1. Give us some details on your industry experience.</h5>
+            <h5>3. Find industry professionals in your area.</h5>
+            <h5>4. Go to the chatbox to meet industry professionals near you.</h5>
+          </div>
+        </Row>
+    
+      
+      
+      </Grid>
       <Grid item xs={12} sm={5} md={8} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
+          <form>
                 <Form className="signup-form"onSubmit={(event)=> {event.preventDefault();console.log(info); submitForm()}} autoComplete="off">
                <h2>Sign Up</h2>
 
@@ -187,6 +204,7 @@ export default function SignIn(){
   <Form.Group controlId="user_city">
     <Form.Label>City</Form.Label>
     <Form.Control as="select" onChange={(event)=>setInfo({...info,city:event.target.value})} required={true}>
+      <option>Select a city</option>
       <option>Toronto</option>
       <option>Montreal</option>
       <option>Vancouver</option>
@@ -206,24 +224,22 @@ export default function SignIn(){
   </Form.Group>
 
 
-  <Button variant="primary" type="submit">
+  <Button variant="primary" type="submit" className="submitButton">
     Submit
   </Button>
 </Form>
+</form>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
+                <br/>
+                <Link href="/signin" variant="body2" className="password-forgot">
+                  Already a member? Sign in!
                 </Link>
               </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
+            
             </Grid>
             <Box mt={5}>
-              <Copyright />
+              <Copyright/>
             </Box>
         </div>
       </Grid>

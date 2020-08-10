@@ -1,5 +1,59 @@
 .signup-form {
-  margin-top: 10em;
+  margin-top: 5em;
   margin-left: 10em;
   margin-right: 10em;
+}
+
+.welcome-text {
+  margin-left: 3.5em;
+  justify-content: center;
+}
+
+.slogan {
+  padding-top: 2em;
+  margin-left:6em;
+  align-items: center;
+  justify-content: center;
+}
+
+.image{
+  margin-top: 12em;
+  margin-left: 8em;
+  margin-right:8em;
+  object-fit: cover;
+}
+
+.password-forgot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studio {
+  background-color: white;
+  border: 25px solid white;
+margin-left: 4em;
+width:75%;
+height: 75%;
+}
+
+.Welcome-index{
+  background-color: black;
+  color: white;
+
+}
+
+.steps {
+  margin-left: 3em;
+  margin-right: 3em;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5em;
+
 }
