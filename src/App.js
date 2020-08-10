@@ -22,7 +22,7 @@ import { BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 class App extends Component {
   state= {
     sideDrawerOpen: false,
-    loggedIn:false
+    loggedIn:Cookies.get('user')
 
     }
   
@@ -37,7 +37,7 @@ class App extends Component {
   };
 
   loggedIn =()=>{
-      //Cookies.set('user',true);
+      Cookies.set('user',true);
       this.setState({loggedIn: true})
   };
     
