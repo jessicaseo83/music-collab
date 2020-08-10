@@ -37,7 +37,6 @@ module.exports= function(db){
     return db.query(query)
     .then(result => result.rows)
   }
-
   //WHERE clause with a specific ad...ad_id
 
   const getAllCollaborators = function (ad_id) {
