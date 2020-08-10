@@ -88,6 +88,7 @@ export default function SignUp(props){
   <Form.Group controlId="user_role">
       <Form.Label>What's your role in the music industry?</Form.Label>
       <Form.Control as="select" onChange={(event)=>setInfo({...info,role:event.target.value})} required={true}>
+      <option>Select a role</option>
       <option>Sound Engineer</option>
       <option>Producer</option>
       <option>Musician</option>
@@ -103,6 +104,7 @@ export default function SignUp(props){
   <Form.Group controlId="user_city">
     <Form.Label>City</Form.Label>
     <Form.Control as="select" onChange={(event)=>setInfo({...info,city:event.target.value})} required={true}>
+      <option>Select a city</option>
       <option>Toronto</option>
       <option>Montreal</option>
       <option>Vancouver</option>
