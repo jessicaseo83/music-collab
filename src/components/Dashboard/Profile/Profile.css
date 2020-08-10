@@ -1,6 +1,6 @@
 .pic{
-  height:100px;
-  width: 100px;
+  height:300px;
+  width: 300px;
   overflow:hidden;
   border-radius: 50%;
   object-fit: cover;

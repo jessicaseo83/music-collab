@@ -17,10 +17,9 @@ export default function Project (props){
       <h3>My Projects</h3>
       {projects.map(project => (
         <div>
-          <img className="project_pic" src={project.pic}/>
           <h4>{project.title}</h4>
           <p>{project.description}</p>
-          <ReactPlayer url={project.url}/>
+          <ReactPlayer className="player" url={project.url}/>
         </div>
       ))
       }

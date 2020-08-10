@@ -13,6 +13,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
 import Switch from '@material-ui/core/Switch';
 
+
+
+import { withStyles } from '@material-ui/core/styles';
+import FormGroup from '@material-ui/core/FormGroup';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
+
+
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -20,12 +30,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+
 const Search = (props) => {
   const [users,setUsers] = useState([]);
   const [role,setRole] = useState("");
   const [city,setCity] = useState("");
   const [filteredUsers,setFilteredUsers] = useState([]);
   const [view,setView]=useState("list");
+ 
+
+
   
   const clearFilters = function () {
     setCity("")
@@ -71,8 +85,9 @@ const roleChange = (event) => {
 
 const classes = useStyles();
 
-return (
 
+return (
+<>
 <section className="main">
   <section className="sidebar"/>
   <section className="map_list">
@@ -127,28 +142,12 @@ return (
 
   </section>
 </section>
+</>
 
 )
 }
 
-// dynamic rendering
-// map value ==2 and list ==4 
 
 
 export default Search;
 
-{/* <select id="role" className="search_filter" onChange={(event)=>setRole(event.target.value)} value ={role}>
-      <option value ="" selected  > Select a role</option>
-      <option>Musician</option>
-      <option>Sound Engineer</option>
-      <option>Songwriter</option>
-</select>
- */}
-
-{/* <select id="city" className="search_filter" onChange={(event)=>setCity(event.target.value)} value ={city}>
-      <option value="" selected  > Select a city</option>
-      <option value="Montreal">Montreal</option>
-      <option value = "Toronto">Toronto</option>
-      <option value ="Vancouver">Vancouver</option>
-      <option value ="Ottawa"> Ottawa</option>
-</select> */}

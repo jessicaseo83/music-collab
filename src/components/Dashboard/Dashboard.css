@@ -10,10 +10,10 @@
 }
 
 .profile {
-  display: inline-block;
+  display: flex;
   flex: 0,0,30%;
 }
 .project {
   display: flex;
-  flex: 0,0,70%
+  flex: 0,0,70%;
 }
