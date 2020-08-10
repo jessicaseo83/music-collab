@@ -31,12 +31,12 @@ module.exports= function(db){
 
   const getAllAds = function () {
     const query= {
-      text:"SELECT ads.*, users.profile_pic, users.name FROM ads JOIN users  ON ads.user_id = users.id JOIN collaborators ON ads.id = collaborators.ad_id "
+      text:`SELECT DISTINCT ads.*, users.name, users.profile_pic FROM ads LEFT JOIN users ON ads.user_id = users.id
+      LEFT JOIN collaborators ON ads.id = collaborators.ad_id ORDER BY ads.id`
     }
     return db.query(query)
     .then(result => result.rows)
   }
-
   //WHERE clause with a specific ad...ad_id
 
   const getAllCollaborators = function (ad_id) {
