@@ -9,7 +9,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
+import Switch from '@material-ui/core/Switch';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -55,15 +57,7 @@ const Search = (props) => {
   },[city,role])
 
 
-<<<<<<< HEAD
 const userList = filteredUsers.map (user => <UserInd key={user.id} user={user}/>)
-=======
-const userList = filteredUsers.map (user => <UserInd key ={user.id} user={user}/>)
-
-return (
-
-<>
->>>>>>> master
 
 // dropdown button handlers
 const cityChange = (event) => {
@@ -73,6 +67,7 @@ const cityChange = (event) => {
 const roleChange = (event) => {
   setRole(event.target.value);
 };
+
 
 const classes = useStyles();
 
@@ -122,6 +117,8 @@ return (
 <label for="map">Map</label>
 <input className="list-btn" type="radio" id ="list" name="view" value="list"></input>
 <label for="list">List</label>
+
+
 </form>
 
 
