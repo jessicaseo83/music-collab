@@ -70,7 +70,7 @@ export default function Map(props) {
  
     <GoogleMap 
       mapContainerStyle={mapContainerStyle}
-      zoom={10}
+      zoom={11}
       options={options}
       center={currentPosition}
      
