@@ -3,6 +3,7 @@ import axios from 'axios';
 import  { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button';
 import "./SignUp.css"
 
@@ -92,6 +93,7 @@ export default function SignUp(props){
   }
   
   return (
+    <>
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={7} md={4} className="Welcome-index">
@@ -167,8 +169,10 @@ export default function SignUp(props){
                   </Form.Control>
               </Form.Group>
 
-              <Form.Group>
-                <p>What is your experience with these tools</p>
+              {/* <Form.Group>
+                <p>What is your experience with these tools?:</p>
+                <Row>
+                <Col sm={6}>
                   <Typography id="vertical-slider" gutterBottom>Cubase</Typography>
                   <div className={classes.root}>
                     <Slider
@@ -178,18 +182,34 @@ export default function SignUp(props){
                       defaultValue={25}
                       aria-labelledby="vertical-slider"
                     />
-      </div>
-      <Typography id="vertical-slider" gutterBottom>Logic</Typography>
-      <div className={classes.root}>
-        <Slider
-          valueLabelDisplay="on"
-          orientation="vertical"
-          getAriaValueText={valuetext}
-          defaultValue={25}
-          aria-labelledby="vertical-slider"
-        />
-      </div>
-  </Form.Group>
+                  </div>
+                  </Col>
+                  <Col sm={6}>
+                  <Typography id="vertical-slider" gutterBottom>Logic</Typography>
+                  <div className={classes.root}>
+                    <Slider
+                      valueLabelDisplay="on"
+                      orientation="vertical"
+                      getAriaValueText={valuetext}
+                      defaultValue={25}
+                      aria-labelledby="vertical-slider"
+                    />
+                  </div>
+                  </Col>
+                  <Col sm={6}>
+                  <Typography id="vertical-slider" gutterBottom>Ableton</Typography>
+                  <div className={classes.root}>
+                    <Slider
+                      valueLabelDisplay="on"
+                      orientation="vertical"
+                      getAriaValueText={valuetext}
+                      defaultValue={25}
+                      aria-labelledby="vertical-slider"
+                    />
+                  </div>
+                  </Col>
+                  </Row>
+              </Form.Group> */}
 
   <Form.Group controlId="url">
     <Form.Label>Profile picture</Form.Label>
@@ -242,6 +262,7 @@ export default function SignUp(props){
         </div>
       </Grid>
     </Grid>
+    </>
   );
 
 }
