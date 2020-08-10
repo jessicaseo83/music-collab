@@ -38,11 +38,12 @@ const marks = [
   }
 ];
 
-export default function SignIn(){
+export default function SignUp(props){
   const [info,setInfo]=useState({name:"",birthday:"",email:"",password:"",city:"",postalCode:"",role:""})
   const classes = useStyles();
   const submitForm = () => {
-    axios.post("/users", info).then(console.log("test"))
+    axios.post("/users", info)
+    .then(props.loggedIn)
   }
   
   return (
@@ -95,29 +96,6 @@ export default function SignIn(){
       </Form.Control>
   </Form.Group>
 
-  <Form.Group>
-    <p>What is your experience with these tools</p>
-      <Typography id="vertical-slider" gutterBottom>Cubase</Typography>
-      <div className={classes.root}>
-        <Slider
-          valueLabelDisplay="on"
-          orientation="vertical"
-          getAriaValueText={valuetext}
-          defaultValue={25}
-          aria-labelledby="vertical-slider"
-        />
-      </div>
-      <Typography id="vertical-slider" gutterBottom>Logic</Typography>
-      <div className={classes.root}>
-        <Slider
-          valueLabelDisplay="on"
-          orientation="vertical"
-          getAriaValueText={valuetext}
-          defaultValue={25}
-          aria-labelledby="vertical-slider"
-        />
-      </div>
-  </Form.Group>
   <Form.Group>
     <Form.File id="file" label="Upload a profile picture" />
   </Form.Group>
