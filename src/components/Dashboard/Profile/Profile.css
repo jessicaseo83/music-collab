@@ -3,4 +3,5 @@
   width: 100px;
   overflow:hidden;
   border-radius: 50%;
+  object-fit: cover;
 }
