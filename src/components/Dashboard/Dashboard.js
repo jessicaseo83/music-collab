@@ -60,6 +60,7 @@ const Dashboard = (props) => {
   const [show, setShow] = useState(false)
   const id = useParams()["id"];
   const url = id? `/dashboard/${id}`:"/dashboard";
+  const owner = id ? false:true;
  
   const classes = useStyles();
   useEffect(()=>{
@@ -80,14 +81,17 @@ const Dashboard = (props) => {
     <>
     <Container className="main">
       <Row>
-        <Col l={4} className="profile"><Profile profile={profile} owner={id ? true:false}/></Col>
+        <Col l={4} className="profile"><Profile profile={profile} owner={owner}/></Col>
         <Col l={8} className="project">
           <Project project={project}/>
         </Col>
       </Row>
       <Row>
         <Col l={4}></Col>
-        <Col l={8}><Button variant="primary" type="submit" onClick={(event) => setShow(!show)}>+ Add project</Button>
+        <Col l={8}>
+          {owner? 
+          <Button variant="primary" type="submit"  onClick={(event) => setShow(!show)}>+ Add project</Button>
+          : null}
         </Col>
       </Row>
      <br/>
