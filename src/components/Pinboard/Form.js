@@ -65,6 +65,8 @@ function ControlledCarousel() {
  
 return (   
 <>
+
+
   <div className="listings">
 <CardGroup>
 <CardColumns className="list">
