@@ -7,4 +7,5 @@ VALUES
 ('Songs For Dogs', 'Songs for dogs!', 'https://soundcloud.com/eileenpeachesli/sets/songs-for-dogs', 'https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg', 11),
 ('This Wasn’t Supposed To Happen', '2019 Demo songs from Jay','https://soundcloud.com/jay-park-official/sets/this-wasnt-supposed-to-1', 'https://cdn.i-scmp.com/sites/default/files/styles/1200x800/public/d8/images/methode/2020/06/30/6d5f69ea-b9a7-11ea-b64b-070a892763db_image_hires_162545.jpg?itok=6uU8CwYp&v=1593505552', 5),
 ('Sk8er Boi', 'Avril and Evan singing sk8er boi', 'https://youtu.be/qUjoHjzUm_o', 'https://i.ytimg.com/vi/5NPBIwQyPWE/hqdefault.jpg',7),
-('Chris Cornell','Deluxe Edition','https://soundcloud.com/chris-cornell-official/sets/chris-cornell-3', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/ChrisCornellTIFFSept2011.jpg/220px-ChrisCornellTIFFSept2011.jpg', 9);
+('Chris Cornell','Deluxe Edition','https://soundcloud.com/chris-cornell-official/sets/chris-cornell-3', 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/ChrisCornellTIFFSept2011.jpg/220px-ChrisCornellTIFFSept2011.jpg', 9),
+('EP 2015', 'Featuring: Matt Sal', 'https://www.youtube.com/watch?v=mwqKjUFuhks', 'https://www.youtube.com/watch?v=mwqKjUFuhks', 26);
