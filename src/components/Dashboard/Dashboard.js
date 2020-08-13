@@ -79,30 +79,20 @@ const Dashboard = (props) => {
   
   return (
     <>
-    <Container className="main">
-      <Row>
-        <Col l={4} className="profile"><Profile profile={profile} owner={owner}/></Col>
-        <Col l={8} className="project">
-          <Project project={project}/>
-        </Col>
-      </Row>
-      <Row>
-        <Col l={4}></Col>
-        <Col l={8}>
+    <div className="main">
+      <section className="profile">
+        <Profile profile={profile} owner={owner}/>
+      </section> 
+      <section className="project">
+        <Project project={project}/>
+        <br/>
           {owner? 
-          <Button variant="primary" type="submit"  onClick={(event) => setShow(!show)}>+ Add project</Button>
+          <Button className="add-btn" variant="primary" type="submit"  onClick={(event) => setShow(!show)}>+ Add project</Button>
           : null}
-        </Col>
-      </Row>
-     <br/>
-     <br/>
-      <Row>
-        <Col>
-      { show ? <MyProjects addProject={addProject}/> : null}
+          { show ? <MyProjects addProject={addProject}/> : null}
+      </section>
       
-      </Col>
-      </Row>
-    </Container>
+    </div>
   
     </>
   )
