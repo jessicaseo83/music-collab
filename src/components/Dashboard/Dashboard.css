@@ -10,10 +10,10 @@
 }
 
 .profile {
-  display: flex;
-  flex: 0,0,30%;
+  margin-left: 5rem;
 }
 .project {
-  display: flex;
-  flex: 0,0,70%;
+  flex-flow: column;
+  margin-left: 6rem;
 }
+
