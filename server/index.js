@@ -82,8 +82,6 @@ app.use("/ads",adsRoute(dbHelpers));
 app.use("/collaborators",collaboratorsRoute(dbHelpers));
 
 
-
-// Welcome message
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
