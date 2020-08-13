@@ -9,3 +9,12 @@
 .player {
   padding-right: 4em;
 }
+
+.book {
+  border: 1px solid #eee;
+  
+}
+
+.project-title {
+  margin-bottom: 2rem;
+}
